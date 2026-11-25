@@ -204,5 +204,22 @@ window.RWS_AR = {
 "Send the key and the machine code to the producer.": "أرسل المفتاح ورمز الجهاز إلى المنتج.",
 "Paste the activation code you receive. Done, without the internet.": "ألصق رمز التفعيل الذي تتلقاه. انتهى، دون إنترنت.",
 "University, training centre or company? See what RWS brings to a class, and a suggested semester.": "جامعة، مركز تكوين أو شركة؟ اطّلع على ما يقدّمه RWS للقسم، وعلى سداسي مقترح.",
-"The page for institutes": "صفحة المعاهد"
+"The page for institutes": "صفحة المعاهد",
+"Films": "الأفلام",
+"RWS in films": "RWS بالأفلام",
+"Three short films, narrated in English. Some were made with earlier versions of the program, so a few screens have changed since.": "ثلاثة أفلام قصيرة، التعليق بالإنجليزية. بعضها أُنجز بإصدارات سابقة من البرنامج، لذلك تغيّرت بعض الشاشات منذ ذلك الحين.",
+"Automatic history matching on Norne": "المطابقة الآلية للتاريخ في نورن",
+"Nine years of recorded production on a real field. One button matches the model to the record; the film shows what changed underground, the sensitivity of the match, and its limits.": "تسع سنوات من الإنتاج المسجَّل في حقل حقيقي. زر واحد يطابق النموذج مع السجل؛ ويُظهر الفيلم ما تغيّر في باطن الأرض، وحساسية المطابقة وحدودها.",
+"Simple, light, and made to teach": "بسيط، خفيف، ومصمَّم للتعليم",
+"Who RWS is for, learning by doing, building a reservoir from your data, and how to get a licence.": "لمن صُمِّم RWS، التعلّم بالممارسة، بناء مكمن من بياناتك، وكيف تحصل على رخصة.",
+"One model, from the reservoir to the surface": "نموذج واحد، من المكمن إلى السطح",
+"The path through the program in five stages: inputs, methods, run, results, optimise.": "المسار داخل البرنامج في خمس مراحل: المدخلات، الطرق، الحساب، النتائج، التحسين.",
+"3 min 58 s": "3 د 58 ث",
+"2 min 29 s": "2 د 29 ث",
+"2 min 1 s": "2 د 1 ث",
+"See RWS at work": "شاهد RWS يعمل",
+"A real field matched to nine years of production, in four minutes.": "حقل حقيقي مطابَق مع تسع سنوات من الإنتاج، في أربع دقائق.",
+"All films →": "كل الأفلام ←",
+"Films →": "الأفلام ←",
+"FILMS": "الأفلام"
 };
