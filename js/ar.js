@@ -249,5 +249,14 @@ window.RWS_AR = {
 "The terms": "الإطار",
 "A partner's place in the startup, to be agreed together. This is not a salaried job.": "مكان شريك في المؤسسة الناشئة، يُتفق عليه معاً. ليست وظيفة بأجر.",
 "The project is led today by one person: Dr. Redha Chawki AGGOUN, petroleum engineer and producer of RWS. Write to him directly.": "يقود المشروع اليوم شخص واحد: الدكتور رضا شوقي عڤون، مهندس بترول ومنتج RWS. راسلوه مباشرة.",
-"Write about the partnership": "راسلنا بشأن الشراكة"
+"Write about the partnership": "راسلنا بشأن الشراكة",
+"Why RWS": "لماذا RWS",
+"Why RWS? Six choices that set it apart.": "لماذا RWS؟ ستة اختيارات تميّزه.",
+"What makes RWS different →": "ما الذي يميّز RWS ←",
+"We are hiring: a partner, not an employee, to develop the program further.": "نوظّف: شريك، لا موظّف، لتطوير البرنامج.",
+"Read the call →": "اقرأ الدعوة ←",
+"What already exists": "ما هو موجود اليوم",
+"Four levels →": "أربعة مستويات ←",
+"Partner →": "الشراكة ←",
+"WHY": "لماذا"
 };

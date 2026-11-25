@@ -1,5 +1,5 @@
 (function () {
-  var moved = { "#levels": "levels.html", "#norne": "decide.html", "#proof": "proof.html", "#key": "key.html" };
+  var moved = { "#levels": "levels.html", "#norne": "decide.html", "#proof": "proof.html", "#key": "key.html", "#partner": "partner.html", "#different": "different.html" };
   if (/(\/|index\.html)$/.test(location.pathname) && moved[location.hash]) { location.replace(moved[location.hash]); return; }
   var root = document.documentElement;
   root.classList.add("js");
@@ -106,7 +106,7 @@
      With GSAP (js/vendor): an opening sequence, sections that rise in as they are reached, numbers that count up,
      a picture that drifts with the scroll and a reading bar. Only for visitors who have not asked for reduced motion.
      Without GSAP the simpler version further down runs instead. */
-  var SEL = "h2, h1.page, .lede, .stand, .tabs, .cards > div, .stats > div, .price > div, .weeks li, .decisions li, .bars .row, .band, .pilot, .check, .section-fig, .film, ol.steps li";
+  var SEL = "h2, h1.page, .lede, .stand, .tabs, .cards > div, .stats > div, .price > div, .weeks li, .decisions li, .bars .row, .band, .pilot, .check, .section-fig, .film, ol.steps li, .why-list li";
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
     if (window.SplitText) gsap.registerPlugin(SplitText);
@@ -183,6 +183,25 @@
           if (support.length) gsap.to(support, { autoAlpha: 1, y: 0, duration: 0.6, ease: OUT, overwrite: true, delay: 0.06, stagger: { each: 0.07, ease: "power2.out" } });
         }
       });
+      /* inner pages: the page title rises word by word, as on the home page */
+      var pt = document.querySelector("h1.page");
+      if (pt && window.SplitText && root.lang !== "ar") {
+        gsap.killTweensOf(pt); gsap.set(pt, { autoAlpha: 1, y: 0 });
+        var ps = SplitText.create(pt, { type: "words", mask: "words" });
+        gsap.from(ps.words, { yPercent: 110, duration: 0.9, ease: OUT, stagger: { each: 0.08, ease: "power1.out" }, onComplete: function () { ps.revert(); } });
+      }
+      /* main buttons lean toward the pointer (mouse only); quickTo reuses one tween per axis */
+      if (window.matchMedia && matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        gsap.utils.toArray(".btn.fill").forEach(function (btn) {
+          btn.classList.add("mag");
+          var xTo = gsap.quickTo(btn, "x", { duration: 0.4, ease: "power3" }), yTo = gsap.quickTo(btn, "y", { duration: 0.4, ease: "power3" });
+          btn.addEventListener("mousemove", function (e) { var r = btn.getBoundingClientRect(); xTo((e.clientX - r.left - r.width / 2) * 0.22); yTo((e.clientY - r.top - r.height / 2) * 0.3); });
+          btn.addEventListener("mouseleave", function () { xTo(0); yTo(0); });
+          btn.addEventListener("pointerdown", function () { gsap.to(btn, { scale: 0.97, duration: 0.12, ease: OUT }); });
+          ["pointerup", "pointerleave"].forEach(function (ev) { btn.addEventListener(ev, function () { gsap.to(btn, { scale: 1, duration: 0.2, ease: OUT }); }); });
+        });
+      }
+      why(true);
       /* reading bar under the header */
       var head = document.querySelector(".bar"), bar = document.createElement("div");
       bar.className = "progress"; bar.setAttribute("aria-hidden", "true"); head.appendChild(bar);
@@ -190,8 +209,27 @@
       if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
       return function () { bar.remove(); };
     });
+    /* the numbered walkthrough: a large figure stays in view and follows the point being read */
+    function why(move) {
+      var list = document.querySelector(".why-list"), num = document.getElementById("why-num");
+      if (!list || !num) return;
+      gsap.utils.toArray(".why-list li").forEach(function (li, i) {
+        ScrollTrigger.create({
+          trigger: li, start: "top 62%", end: "bottom 62%",
+          onToggle: function (self) {
+            li.classList.toggle("on", self.isActive);
+            if (!self.isActive || num.textContent === String(i + 1)) return;
+            num.textContent = i + 1;
+            if (move) gsap.fromTo(num, { yPercent: 35, autoAlpha: 0, filter: "blur(4px)" }, { yPercent: 0, autoAlpha: 1, filter: "blur(0px)", duration: 0.32, ease: OUT, overwrite: true });
+          }
+        });
+      });
+      var fill = document.querySelector(".why-line i");
+      if (fill) gsap.fromTo(fill, { scaleY: 0 }, { scaleY: 1, ease: "none", scrollTrigger: { trigger: list, start: "top 62%", end: "bottom 62%", scrub: move ? 0.3 : true } });
+    }
     /* visitors who asked for less motion keep a short fade and no movement */
     mm.add("(prefers-reduced-motion: reduce)", function () {
+      why(false);
       gsap.set(items, { autoAlpha: 0 });
       ScrollTrigger.batch(items, { start: "top 95%", once: true, onEnter: function (batch) { gsap.to(batch, { autoAlpha: 1, duration: 0.2, ease: "none", overwrite: true }); } });
     });

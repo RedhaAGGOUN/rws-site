@@ -467,3 +467,36 @@ dialog.lb[open]::backdrop { animation: fade 260ms ease; }
 /* sections: different, partner */
 #different .cards h3, #partner .cards h3 { color: var(--green); }
 #partner .eyebrow { margin-bottom: 8px; }
+
+/* ---------- the numbered walkthrough (different.html) ---------- */
+.why { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 48px; margin-top: 30px; }
+.why-side { position: sticky; top: 120px; align-self: start; display: none; grid-template-columns: auto 3px; gap: 22px; height: 260px; }
+.gsap .why-side { display: grid; }
+.why-num { display: flex; align-items: baseline; gap: 10px; overflow: hidden; align-self: start; }
+.why-num b { font: 700 italic 11rem/0.9 var(--display); color: var(--green); font-variant-numeric: tabular-nums; display: block; }
+.why-num span { font: 500 1rem var(--mono); color: var(--soft); white-space: nowrap; }
+.why-line { display: block; background: var(--line); height: 100%; }
+.why-line i { display: block; width: 100%; height: 100%; background: var(--green); transform-origin: top center; transform: scaleY(0); }
+.why-list { list-style: none; margin: 0; padding: 0; }
+.why-list li { border-top: 1px solid var(--line); padding: 54px 0 60px; }
+.why-list li:last-child { border-bottom: 1px solid var(--line); }
+.why-list h2 { font-size: clamp(2rem, 4vw, 3.25rem); text-transform: none; margin-bottom: 14px; }
+.why-list p { font-size: 1.25rem; color: var(--soft); max-width: 46ch; margin: 0; }
+.why-list .n { display: none; font: 700 italic 3.5rem/1 var(--display); color: var(--green); margin-bottom: 6px; }
+html:not(.gsap) .why { grid-template-columns: minmax(0, 1fr); }
+html:not(.gsap) .why-list .n { display: block; }
+.gsap .why-list .in { opacity: .45; transition: opacity .35s ease; }
+.gsap .why-list li.on .in { opacity: 1; }
+.gsap .btn.mag { transition: background .2s ease, color .2s ease; }
+.gsap .btn.mag:hover { transform: none; }
+@media (max-width: 860px) {
+  .why { grid-template-columns: minmax(0, 1fr); gap: 0; margin-top: 16px; }
+  .gsap .why-side { display: none; }
+  .why-list .n { display: block; }
+  .why-list li { padding: 30px 0 34px; }
+  .why-list p { font-size: 1.0625rem; }
+  .gsap .why-list .in { opacity: 1; }
+  .bar nav { -webkit-mask-image: linear-gradient(to right, #000 86%, transparent); mask-image: linear-gradient(to right, #000 86%, transparent); padding-inline-end: 28px; }
+  [dir="rtl"] .bar nav { -webkit-mask-image: linear-gradient(to left, #000 86%, transparent); mask-image: linear-gradient(to left, #000 86%, transparent); }
+}
+:root[lang="ar"] .why-num b, :root[lang="ar"] .why-list .n { font-style: normal; }
