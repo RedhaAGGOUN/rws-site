@@ -580,3 +580,8 @@ html:not(.gsap) .why-list .n { display: block; }
 :root[lang="ar"] .journey .j-lab { font-size: 1.625rem; }
 
 .journey-fig video.loop { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #fff; }
+
+.journey-fig { position: relative; }
+.snd { position: absolute; top: 12px; inset-inline-end: 12px; min-height: 44px; padding: 8px 14px; border: 1px solid rgba(255, 255, 255, .6); border-radius: 22px; background: rgba(16, 22, 18, .72); color: #fff; font: 500 0.8125rem var(--mono); cursor: pointer; transition: transform 160ms var(--ease-out), background .2s ease; }
+.snd:hover { background: #0b6b3a; } .snd:active { transform: scale(.97); }
+.snd .off, .snd[aria-pressed="true"] .on { display: none; } .snd[aria-pressed="true"] .off { display: inline; }

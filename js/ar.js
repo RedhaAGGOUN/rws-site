@@ -331,5 +331,7 @@ window.RWS_AR = {
 "WELL": "البئر",
 "PROFIT": "الربح",
 "From the pore to the profit: the path of one drop.": "من المسام إلى الربح: مسار قطرة واحدة.",
-"Animation: the drop of the RWS logo becomes a drop of oil in the reservoir, flows to the well, rises to the surface, becomes money, and returns to the logo.": "حركة: قطرة شعار RWS تصير قطرة نفط في المكمن، تنساب نحو البئر، تصعد إلى السطح، تصير مالاً، ثم تعود إلى الشعار."
+"Animation: the drop of the RWS logo becomes a drop of oil in the reservoir, flows to the well, rises to the surface, becomes money, and returns to the logo.": "حركة: قطرة شعار RWS تصير قطرة نفط في المكمن، تنساب نحو البئر، تصعد إلى السطح، تصير مالاً، ثم تعود إلى الشعار.",
+"Sound on": "تشغيل الصوت",
+"Sound off": "إيقاف الصوت"
 };

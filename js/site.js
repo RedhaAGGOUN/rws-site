@@ -92,6 +92,13 @@
   var lp = document.querySelector("video.loop");
   if (lp && window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) { lp.removeAttribute("autoplay"); lp.pause(); lp.controls = true; }
 
+  /* the film plays silently by itself (browsers require it); this button turns its music on and off */
+  var sb = document.querySelector(".snd");
+  if (sb && lp) sb.addEventListener("click", function () {
+    lp.muted = !lp.muted; sb.setAttribute("aria-pressed", String(!lp.muted));
+    if (lp.paused) lp.play();
+  });
+
   /* enlarge a picture */
   var lb = document.getElementById("lb");
   if (lb && lb.showModal) {
