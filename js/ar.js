@@ -388,5 +388,14 @@ window.RWS_AR = {
 "Paste the activation code you receive. It is made from your key and your machine reference, so it works on that computer only. Done, without the internet.": "ألصق رمز التفعيل الذي تتلقاه. يُحسب من مفتاحك ومرجع جهازك، فلا يعمل إلا على ذلك الحاسوب. انتهى، دون إنترنت.",
 "Send my key and machine reference": "أرسل مفتاحي ومرجع جهازي",
 "Version 4.27.0 · 295 MB · Windows 10 or 11, 64 bit. Free to download; a key is needed to use it.": "الإصدار 4.27.0 · 295 ميغابايت · ويندوز 10 أو 11، 64 بت. التحميل مجاني؛ ويلزم مفتاح لاستعماله.",
-"Five steps, from the download to your first decision.": "خمس خطوات، من التحميل إلى قرارك الأول."
+"Five steps, from the download to your first decision.": "خمس خطوات، من التحميل إلى قرارك الأول.",
+"Five steps, from the download to your first lesson.": "خمس خطوات، من التحميل إلى درسك الأول.",
+"Write to us and say whether you are a student, a professional or an institute.": "راسلنا واذكر إن كنت طالبًا أو مهنيًا أو معهدًا.",
+"Enter your key": "أدخل مفتاحك",
+"Start RWS and type your key where the program asks for it. RWS then shows your machine reference.": "شغّل RWS وأدخل مفتاحك حيث يطلبه البرنامج. يعرض RWS عندها مرجع جهازك.",
+"Send us your details": "أرسل إلينا بياناتك",
+"Send your name, your key and your machine reference to aggoun.r.c@gmail.com.": "أرسل اسمك ومفتاحك ومرجع جهازك إلى aggoun.r.c@gmail.com.",
+"Send my details": "أرسل بياناتي",
+"Activate and enjoy": "فعّل واستمتع",
+"You receive an activation code. Paste it into RWS: it works on that computer, without the internet. Then start with level 1, Learn.": "تتلقى رمز تفعيل. ألصقه في RWS: يعمل على ذلك الحاسوب، دون إنترنت. ثم ابدأ بالمستوى 1، تعلَّم."
 };
