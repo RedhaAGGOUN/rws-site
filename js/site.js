@@ -1,5 +1,5 @@
 (function () {
-  var moved = { "#levels": "what.html#levels", "#norne": "decide.html", "#proof": "proof.html", "#key": "how.html#key", "#partner": "partner.html", "#different": "why.html" };
+  var moved = { "#levels": "what.html#levels", "#norne": "what.html#decide", "#proof": "why.html#proof", "#key": "how.html#key", "#partner": "who.html#partner", "#different": "why.html" };
   if (/(\/|index\.html)$/.test(location.pathname) && moved[location.hash]) { location.replace(moved[location.hash]); return; }
   var root = document.documentElement;
   root.classList.add("js");

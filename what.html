@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,600;1,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=22">
+<link rel="stylesheet" href="css/site.css?v=23">
 </head>
 <body>
 
@@ -160,15 +160,58 @@
     </div>
   </section>
 
-  <section class="interval" id="see">
-    <div class="depth"><b data-fr="SUITE">MORE</b></div>
+  <section class="interval" id="decide">
+    <div class="depth"><b data-fr="DÉCISION">DECISION</b></div>
     <div class="body">
-      <h2 data-fr="Le voir">See it</h2>
-      <p class="lede" data-fr="Une décision chiffrée, et RWS en film.">A worked decision, and RWS on film.</p>
-      <div class="cards links two-up">
-        <div><h3><a href="decide.html" data-fr="Ce qu'un manager lit">What a manager reads</a></h3><p data-fr="Trois opérations sur Norne, chiffrées avec deux modèles. Laquelle faire, laquelle mesurer d'abord.">Three operations on Norne, valued with two models. Which to do, which to measure first.</p><a class="go" href="decide.html" data-fr="Décider &#8594;">Decide &#8594;</a></div>
-        <div><h3><a href="films.html" data-fr="Voir RWS au travail">See RWS at work</a></h3><p data-fr="Un champ réel calé sur neuf ans de production, en quatre minutes.">A real field matched to nine years of production, in four minutes.</p><a class="go" href="films.html" data-fr="Tous les films &#8594;">All films &#8594;</a></div>
+      <h2 data-fr="Ce qu'un manager lit">What a manager reads</h2>
+      <p class="lede" data-fr="Sur Norne, trois opérations sont chiffrées avec deux modèles qui reproduisent tous deux le passé. Gain net après impôt, en millions de dollars.">On Norne, three operations are valued with two models that both reproduce the past. Net gain after tax, in million dollars.</p>
+      <div class="bars" role="img" aria-label="New producer: 104 and 114 million dollars. Wettest well shut: 29 and 14. More water: 101 and 13." data-fr-aria="Nouveau producteur : 104 et 114 millions de dollars. Puits le plus humide fermé : 29 et 14. Plus d'eau : 101 et 13.">
+        <div class="row"><div class="name"><span data-fr="Nouveau producteur">New producer</span><small data-fr="80 M$ investis">80 M$ invested</small></div>
+          <div class="bar2"><span style="width:63%" data-v="+104 M$"></span><span class="b" style="width:69%" data-v="+114 M$"></span></div></div>
+        <div class="row"><div class="name"><span data-fr="Fermer le puits le plus humide">Shut the wettest well</span><small data-fr="2 M$ investis">2 M$ invested</small></div>
+          <div class="bar2"><span style="width:17.6%" data-v="+29 M$"></span><span class="b" style="width:8.5%" data-v="+14 M$"></span></div></div>
+        <div class="row"><div class="name"><span data-fr="30 % d'eau en plus">30 % more water</span><small data-fr="20 M$ investis">20 M$ invested</small></div>
+          <div class="bar2"><span style="width:61.2%" data-v="+101 M$"></span><span class="b" style="width:7.9%" data-v="+13 M$"></span></div></div>
       </div>
+      <div class="key"><span><i style="background:var(--green)"></i><span data-fr="Modèle calé automatiquement">Automatic match</span></span><span><i style="background:var(--ink)"></i><span data-fr="Modèle calé à la main">Match by hand</span></span></div>
+      <ol class="decisions">
+        <li><div><b data-fr="Forer le nouveau producteur.">Drill the new producer.</b><span data-fr="Les deux modèles sont d'accord. Rentable dès 14 $ le baril.">Both models agree. It pays from 14 $ a barrel.</span></div></li>
+        <li><div><b data-fr="Fermer tout de suite le puits le plus humide.">Shut the wettest well now.</b><span data-fr="Deux millions investis, un gain dans les deux modèles.">Two million invested, a gain in both models.</span></div></li>
+        <li><div><b data-fr="Eau : mesurer avant d'engager 20 M$.">Water: measure before committing 20 M$.</b><span data-fr="Les modèles divergent de près de 90 M$. Une mesure de pression les départage.">The models differ by almost 90 M$. One pressure measurement tells them apart.</span></div></li>
+      </ol>
+      <p class="small" data-fr="Calcul de RWS, pétrole à 70 $ le baril, impôt de 78 % (Norvège, appliqué comme un seul taux). Les coûts et les chances de succès sont des hypothèses de l'étude. Modèle d'enseignement : ce n'est pas un conseil sur le champ réel.">Computed by RWS, oil at 70 $ a barrel, tax 78 % (Norway, applied as one rate). Costs and chances of success are assumptions of the study. A teaching model: this is not advice about the real field.</p>
+    </div>
+  </section>
+
+  <section class="interval" id="films">
+    <div class="depth"><b data-fr="FILMS">FILMS</b></div>
+    <div class="body">
+      <h2 data-fr="RWS en films">RWS in films</h2>
+      <p class="lede" data-fr="Trois courts films, commentés en anglais. Certains ont été réalisés avec des versions antérieures du programme : quelques écrans ont changé depuis.">Three short films, narrated in English. Some were made with earlier versions of the program, so a few screens have changed since.</p>
+      <article class="film">
+        <video controls preload="none" playsinline poster="img/poster_norne.jpg" width="1920" height="1080" aria-label="Automatic history matching on Norne" data-fr-aria="Calage automatique de l'historique sur Norne"><source src="video/norne-history-match.mp4" type="video/mp4"></video>
+        <div>
+          <p class="eyebrow" data-fr="3 min 58 s">3 min 58 s</p>
+          <h3 data-fr="Calage automatique de l'historique sur Norne">Automatic history matching on Norne</h3>
+          <p data-fr="Neuf ans de production réelle sur un vrai champ. Un seul bouton cale le modèle sur l'historique ; le film montre ce qui a changé en profondeur, la sensibilité du calage et ses limites.">Nine years of recorded production on a real field. One button matches the model to the record; the film shows what changed underground, the sensitivity of the match, and its limits.</p>
+        </div>
+      </article>
+      <article class="film">
+        <video controls preload="none" playsinline poster="img/poster_presentation.jpg" width="1920" height="1080" aria-label="Simple, light, and made to teach" data-fr-aria="Simple, léger, fait pour enseigner"><source src="video/rws-presentation.mp4" type="video/mp4"></video>
+        <div>
+          <p class="eyebrow" data-fr="2 min 29 s">2 min 29 s</p>
+          <h3 data-fr="Simple, léger, fait pour enseigner">Simple, light, and made to teach</h3>
+          <p data-fr="À qui s'adresse RWS, apprendre en faisant, construire un gisement à partir de ses données, et comment obtenir une licence.">Who RWS is for, learning by doing, building a reservoir from your data, and how to get a licence.</p>
+        </div>
+      </article>
+      <article class="film">
+        <video controls preload="none" playsinline poster="img/poster_promo.jpg" width="1920" height="1080" aria-label="One model, from the reservoir to the surface" data-fr-aria="Un seul modèle, du gisement à la surface"><source src="video/rws-promo.mp4" type="video/mp4"></video>
+        <div>
+          <p class="eyebrow" data-fr="2 min 1 s">2 min 1 s</p>
+          <h3 data-fr="Un seul modèle, du gisement à la surface">One model, from the reservoir to the surface</h3>
+          <p data-fr="Le parcours dans le programme en cinq étapes : données, méthodes, calcul, résultats, optimisation.">The path through the program in five stages: inputs, methods, run, results, optimise.</p>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -199,10 +242,6 @@
       <a href="why.html" data-fr="Pourquoi">Why</a>
       <a href="how.html" data-fr="Comment">How</a>
       <a href="who.html" data-fr="Qui">Who</a>
-      <a href="films.html" data-fr="Films">Films</a>
-      <a href="proof.html" data-fr="Les preuves">Proof</a>
-      <a href="institutes.html" data-fr="Instituts">Institutes</a>
-      <a href="partner.html" data-fr="Associé">Partner</a>
     </nav>
     <p class="reach"><a href="mailto:aggoun.r.c@gmail.com">aggoun.r.c@gmail.com</a><a href="https://wa.me/33766884953">WhatsApp +33 7 66 88 49 53</a><span>Dr. Redha Chawki AGGOUN</span></p>
   </div>
@@ -211,10 +250,10 @@
 </footer>
 
 <dialog class="lb" id="lb"><button type="button" data-fr="Fermer">Close</button><img alt=""><p></p></dialog>
-<script src="js/ar.js?v=22"></script>
+<script src="js/ar.js?v=23"></script>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
 <script src="js/vendor/SplitText.min.js"></script>
-<script src="js/site.js?v=22"></script>
+<script src="js/site.js?v=23"></script>
 </body>
 </html>
