@@ -356,5 +356,6 @@ window.RWS_AR = {
 "The team": "الفريق",
 "What is verified, and what is not yet.": "ما تمّ التحقق منه، وما لم يتم بعد.",
 "A worked decision, and RWS on film.": "قرار مقيَّم بالمال، وRWS بالأفلام.",
-"See it": "شاهده"
+"See it": "شاهده",
+"What RWS is": "ما هو RWS"
 };

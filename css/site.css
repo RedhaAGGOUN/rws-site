@@ -618,3 +618,9 @@ body.intro .log { max-width: none; padding: 0; flex: 1; display: flex; }
 .howto ol.steps { padding-left: 22px; max-width: 65ch; }
 [dir="rtl"] .howto ol.steps { padding-left: 0; padding-right: 22px; }
 .intro-stage video.loop { cursor: pointer; }
+
+/* the intro: the film and one line, nothing else */
+.intro-stage { flex-direction: column; }
+.intro-stage video.loop { height: calc(100vh - 70px - 8.5rem); }
+.intro-line { font-size: clamp(2rem, 4.6vw, 3.75rem); text-align: center; margin: 0; padding: 1.25rem 16px 1.5rem; line-height: 1; }
+@media (max-width: 860px) { .intro-stage { justify-content: center; } .intro-stage video.loop { height: auto; max-height: calc(100vh - 130px - 8rem); } .intro-line { padding-top: 1rem; } }
