@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RWS ReservoirWellSurface</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,600;1,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: the page is read like a well log. A depth track runs down the left edge;
+   each section is an interval of the log, from the surface (who it is for) down to the reservoir (the decision). */
+:root {
+  --paper: #fbfcfa;
+  --panel: #f0f3ee;
+  --ink: #101612;
+  --soft: #4d5a52;
+  --line: #cfd6cf;
+  --green: #0b6b3a;
+  --red: #c8102e;
+  --display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --track: 92px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f1512; --panel: #18211c; --ink: #eef2ee; --soft: #a9b6ad; --line: #2c3a32; --green: #39b877; --red: #ff5a6e;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f1512; --panel: #18211c; --ink: #eef2ee; --soft: #a9b6ad; --line: #2c3a32; --green: #39b877; --red: #ff5a6e;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.55; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--green); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+
+.logo-dark { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo-light { display: none; } :root:not([data-theme="light"]) .logo-dark { display: block; } }
+:root[data-theme="dark"] .logo-light { display: none; }
+:root[data-theme="dark"] .logo-dark { display: block; }
+
+/* top bar */
+.bar { position: sticky; top: 0; z-index: 5; background: var(--paper); border-bottom: 1px solid var(--line); }
+.bar-in { max-width: 1180px; margin: 0 auto; padding: 10px 20px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.bar img { height: 44px; width: auto; }
+.bar nav { display: flex; gap: 18px; flex-wrap: wrap; margin-left: auto; font-size: 15px; }
+.bar nav a { color: var(--ink); text-decoration: none; border-bottom: 2px solid transparent; padding: 4px 0; }
+.bar nav a:hover { border-bottom-color: var(--green); }
+.lang { display: flex; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+.lang button { font: 500 13px var(--mono); padding: 6px 10px; border: 0; background: transparent; color: var(--soft); cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--green); color: var(--paper); }
+
+/* the log */
+.log { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+.interval { display: grid; grid-template-columns: var(--track) minmax(0, 1fr); border-bottom: 1px solid var(--line); }
+.depth { border-right: 1px solid var(--line); padding: 34px 10px 0 0; font: 500 12px var(--mono); color: var(--soft); text-align: right;
+  background-image: repeating-linear-gradient(to bottom, var(--line) 0 1px, transparent 1px 24px); background-size: 9px 100%; background-repeat: no-repeat; background-position: right top; }
+.depth b { display: block; color: var(--green); font-weight: 500; letter-spacing: .06em; white-space: nowrap; }
+.body { padding: 34px 0 46px 28px; min-width: 0; }
+h1, h2, h3 { font-family: var(--display); font-style: italic; font-weight: 700; line-height: 1.02; margin: 0; text-wrap: balance; letter-spacing: .005em; }
+h1 { font-size: clamp(46px, 8vw, 96px); text-transform: uppercase; }
+h1 em { font-style: italic; color: var(--green); }
+h2 { font-size: clamp(34px, 5vw, 56px); text-transform: uppercase; margin-bottom: 14px; }
+h3 { font-size: 30px; }
+p { margin: 0 0 14px; max-width: 65ch; }
+.lede { font-size: 20px; color: var(--soft); max-width: 58ch; }
+.eyebrow { font: 500 13px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
+.small { font-size: 14px; color: var(--soft); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 34px; align-items: center; }
+.hero figure { margin: 0; border: 1px solid var(--line); background: #fff; }
+.hero figcaption, figure figcaption { font: 400 12px var(--mono); color: var(--soft); padding: 8px 10px; border-top: 1px solid var(--line); background: var(--panel); }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+.btn { font: 600 16px var(--body); text-decoration: none; padding: 12px 20px; border-radius: 4px; border: 2px solid var(--green); }
+.btn.fill { background: var(--green); color: var(--paper); }
+.btn.line { color: var(--green); }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; font: 400 13px var(--mono); color: var(--soft); }
+.legend i { display: inline-block; width: 12px; height: 12px; margin-right: 6px; vertical-align: -1px; }
+
+/* before / after */
+.stand { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); margin-top: 22px; }
+.stand div { padding: 20px; border-right: 1px solid var(--line); min-width: 0; }
+.stand div:last-child { border-right: 0; }
+.stand .mid { background: var(--panel); }
+.stand span { font: 500 12px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--soft); }
+.stand h3 { margin: 6px 0 8px; }
+.stand .rws h3 { color: var(--green); }
+
+/* levels */
+.level { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 30px; align-items: start; padding: 26px 0; border-top: 1px solid var(--line); }
+.level:first-of-type { border-top: 0; }
+.level .num { font: 700 italic 92px/0.8 var(--display); color: var(--green); }
+.level:nth-of-type(even) .num { color: var(--red); }
+.level ul { margin: 10px 0 0; padding-left: 18px; }
+.level li { margin-bottom: 6px; }
+.level figure { margin: 0; border: 1px solid var(--line); background: #fff; }
+
+/* decide: bars */
+.bars { margin: 22px 0 8px; display: grid; gap: 18px; max-width: 860px; }
+.row { display: grid; grid-template-columns: minmax(0, 250px) minmax(0, 1fr); gap: 16px; align-items: center; }
+.row .name { font-weight: 600; }
+.row .name small { display: block; font: 400 13px var(--mono); color: var(--red); }
+.bar2 { display: grid; gap: 5px; }
+.bar2 span { display: block; height: 22px; background: var(--green); min-width: 3px; position: relative; }
+.bar2 span.b { background: var(--ink); }
+.bar2 span::after { content: attr(data-v); position: absolute; left: calc(100% + 8px); top: 0; font: 500 14px/22px var(--mono); color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.key { display: flex; gap: 18px; flex-wrap: wrap; font: 400 13px var(--mono); color: var(--soft); margin-top: 6px; }
+.key i { display: inline-block; width: 12px; height: 12px; margin-right: 6px; vertical-align: -1px; }
+.decisions { counter-reset: d; display: grid; gap: 10px; margin: 20px 0 14px; padding: 0; list-style: none; max-width: 860px; }
+.decisions li { counter-increment: d; display: grid; grid-template-columns: 54px minmax(0, 1fr); gap: 14px; padding: 14px 16px; background: var(--panel); border-left: 0; }
+.decisions li::before { content: counter(d); font: 700 italic 44px/1 var(--display); color: var(--green); }
+.decisions li:last-child::before { color: var(--red); }
+.decisions b { display: block; }
+
+/* proof */
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); margin: 20px 0; }
+.stats div { padding: 18px; border-right: 1px solid var(--line); min-width: 0; }
+.stats div:last-child { border-right: 0; }
+.stats b { display: block; font: 700 italic 64px/1 var(--display); color: var(--green); font-variant-numeric: tabular-nums; }
+.stats span { font-size: 15px; color: var(--soft); }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+
+/* key */
+.price { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); margin: 20px 0; }
+.price div { padding: 20px; border-right: 1px solid var(--line); min-width: 0; }
+.price div:last-child { border-right: 0; }
+.price b { display: block; font: 700 italic 48px/1 var(--display); margin: 6px 0; }
+.price span { font: 500 12px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--soft); }
+ol.steps { margin: 14px 0 0; padding-left: 22px; max-width: 65ch; }
+ol.steps li { margin-bottom: 8px; }
+.contact { font: 500 18px var(--mono); margin: 10px 0; overflow-wrap: anywhere; }
+footer { max-width: 1180px; margin: 0 auto; padding: 26px 20px 50px; font-size: 14px; color: var(--soft); }
+
+@media (max-width: 860px) {
+  :root { --track: 0px; }
+  .interval { grid-template-columns: minmax(0, 1fr); }
+  .depth { display: none; }
+  .body { padding-left: 0; }
+  .hero, .level, .two { grid-template-columns: minmax(0, 1fr); }
+  .stand, .stats, .price { grid-template-columns: minmax(0, 1fr); }
+  .stand div, .stats div, .price div { border-right: 0; border-bottom: 1px solid var(--line); }
+  .stand div:last-child, .stats div:last-child, .price div:last-child { border-bottom: 0; }
+  .row { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .bar2 span::after { font-size: 13px; }
+  .bar2 { padding-right: 86px; }
+  .bar nav { margin-left: 0; order: 3; width: 100%; }
+  .lang { margin-left: auto; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <img class="logo-light" src="img/logo.png" alt="RWS ReservoirWellSurface">
+    <img class="logo-dark" src="img/logo_dark.png" alt="RWS ReservoirWellSurface">
+    <nav aria-label="Sections">
+      <a href="#levels" data-fr="Les quatre niveaux">The four levels</a>
+      <a href="#norne" data-fr="Décider">Decide</a>
+      <a href="#proof" data-fr="Les preuves">Proof</a>
+      <a href="#key" data-fr="Obtenir une clé">Get a key</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-en" aria-pressed="true">EN</button>
+      <button type="button" id="lang-fr" aria-pressed="false">FR</button>
+    </div>
+  </div>
+</header>
+
+<main class="log">
+
+  <section class="interval" id="top">
+    <div class="depth"><b>R · W · S</b>0 m</div>
+    <div class="body">
+      <div class="hero">
+        <div>
+          <p class="eyebrow" data-fr="Simulateur de production pétrole et gaz">Oil and gas production simulator</p>
+          <h1 data-fr-html="Comprendre un champ. <em>Puis décider.</em>">Understand a field. <em>Then decide.</em></h1>
+          <p class="lede" style="margin-top:18px" data-fr="RWS est le simulateur pétrole et gaz pour les étudiants et les managers : le gisement, les puits et la surface dans un seul programme, en français, en anglais et en arabe.">RWS is the oil and gas simulator for students and managers: the reservoir, the wells and the surface in one program, in English, French and Arabic.</p>
+          <div class="cta">
+            <a class="btn fill" href="#key" data-fr="Obtenir une clé">Get a key</a>
+            <a class="btn line" href="#levels" data-fr="Voir les quatre niveaux">See the four levels</a>
+          </div>
+        </div>
+        <figure>
+          <img src="img/norne3d.jpg" width="1440" height="810" alt="The Norne field in RWS: oil, injected water and gas in the grid, with the wells." data-fr-alt="Le champ de Norne dans RWS : huile, eau injectée et gaz dans la grille, avec les puits.">
+          <figcaption data-fr="Champ de Norne, mer de Norvège, données publiques. État du modèle en 2004 ; hauteur étirée 12 fois.">Norne field, Norwegian Sea, public data. State of the model in 2004; height stretched 12 times.</figcaption>
+        </figure>
+      </div>
+      <div class="legend" aria-hidden="true">
+        <span><i style="background:#33b85c"></i><span data-fr="Huile">Oil</span></span>
+        <span><i style="background:#1254cc"></i><span data-fr="Eau injectée">Injected water</span></span>
+        <span><i style="background:#d91a2e"></i><span data-fr="Gaz">Gas</span></span>
+        <span><i style="background:#ccdef2"></i><span data-fr="Eau d'origine">Original water</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="interval" id="place">
+    <div class="depth"><b data-fr="PLACE">PLACE</b>500 m</div>
+    <div class="body">
+      <h2 data-fr="Avant et après les logiciels lourds">Before and after the heavy software</h2>
+      <p class="lede" data-fr="RWS ne concurrence pas les grands simulateurs techniques. Il prépare à leur usage, puis il aide à lire leurs résultats.">RWS does not compete with the large technical simulators. It prepares people to use them, then helps to read what they produce.</p>
+      <div class="stand">
+        <div class="rws"><span data-fr="Avant">Before</span><h3>RWS</h3><p data-fr="L'étudiant apprend le langage des experts avec une vue d'ensemble, du pore jusqu'à la ligne d'export.">The student learns the language of the experts with the whole picture, from the pore to the export line.</p></div>
+        <div class="mid"><span data-fr="Pendant">During</span><h3 data-fr="Les grands simulateurs">The large simulators</h3><p data-fr="Les spécialistes mènent les études techniques détaillées.">Specialists carry out the detailed technical studies.</p></div>
+        <div class="rws"><span data-fr="Après">After</span><h3>RWS</h3><p data-fr="Le manager suit le raisonnement d'une étude, vérifie un ordre de grandeur, et décide.">The manager follows the reasoning of a study, checks an order of size, and decides.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="interval" id="levels">
+    <div class="depth"><b data-fr="NIVEAUX">LEVELS</b>1 000 m</div>
+    <div class="body">
+      <h2 data-fr="Quatre niveaux">Four levels</h2>
+
+      <article class="level">
+        <div><div class="num">1</div><h3 data-fr="Apprendre">Learn</h3>
+          <ul>
+            <li data-fr="105 leçons en 13 chapitres, chacune avec son but, ses exercices et ses questions.">105 lessons in 13 chapters, each with a goal, exercises and questions.</li>
+            <li data-fr="Une encyclopédie de 91 termes ; une fiche de 66 formules.">An encyclopedia of 91 terms; a sheet of 66 formulas.</li>
+            <li data-fr="Des images que l'on déplace soi-même : front d'eau, débit d'un puits, déclin.">Pictures you move yourself: the water front, the inflow of a well, the decline.</li>
+            <li data-fr="Une mauvaise réponse mène à la leçon qui l'explique.">A wrong answer leads to the lesson that explains it.</li>
+          </ul></div>
+        <figure><img data-shot="hub_learn" src="img/hub_learn_en.jpg" width="1311" height="651" alt="The page of Learn" data-fr-alt="La page Apprendre"></figure>
+      </article>
+
+      <article class="level">
+        <div><div class="num">2</div><h3 data-fr="S'exercer">Practise</h3>
+          <ul>
+            <li data-fr="16 exemples résolus pas à pas : le problème, la méthode, ce qu'il faut remarquer.">16 examples solved step by step: the problem, the method, what to notice.</li>
+            <li data-fr="Deux études de champ guidées, une étape à la fois.">Two guided field studies, one step at a time.</li>
+            <li data-fr="Norne : neuf ans de production réelle, calés à la main puis automatiquement.">Norne: nine years of recorded production, matched by hand and then automatically.</li>
+          </ul></div>
+        <figure><img data-shot="norne_compare" src="img/norne_compare_en.jpg" width="1400" height="860" alt="The Norne study: the record and three models" data-fr-alt="L'étude de Norne : l'historique et trois modèles"></figure>
+      </article>
+
+      <article class="level">
+        <div><div class="num">3</div><h3 data-fr="Construire">Build</h3>
+          <ul>
+            <li data-fr="Son propre modèle : grille, roche, fluides, puits, réseau de surface.">Your own model: grid, rock, fluids, wells, surface network.</li>
+            <li data-fr="Trois niveaux de calcul : le gisement seul, avec ses puits, ou avec la surface.">Three levels of run: the reservoir alone, with its wells, or with the surface.</li>
+            <li data-fr="Le résultat s'explique lui-même, à partir de ses chiffres.">The result explains itself, from its own numbers.</li>
+          </ul></div>
+        <figure><img data-shot="page08" src="img/page08_en.jpg" width="1400" height="788" alt="The results page" data-fr-alt="La page des résultats"></figure>
+      </article>
+
+      <article class="level">
+        <div><div class="num">4</div><h3 data-fr="Décider">Decide</h3>
+          <ul>
+            <li data-fr="Le champ en une page : taille, production, reste à produire, pression, eau, puits.">The field in one page: size, production, what is left, pressure, water, wells.</li>
+            <li data-fr="Chaque action chiffrée : coût, valeur, délai de récupération, prix d'équilibre.">Each action in money: cost, value, payback, break-even price.</li>
+            <li data-fr="Une note de décision d'une page, à imprimer ou à envoyer.">A one-page decision brief to print or send.</li>
+          </ul></div>
+        <figure><img data-shot="desk_glance" src="img/desk_glance_en.jpg" width="1240" height="840" alt="The field at a glance" data-fr-alt="Le champ en un coup d'œil"></figure>
+      </article>
+    </div>
+  </section>
+
+  <section class="interval" id="norne">
+    <div class="depth"><b data-fr="DÉCISION">DECISION</b>2 500 m</div>
+    <div class="body">
+      <h2 data-fr="Ce qu'un manager lit">What a manager reads</h2>
+      <p class="lede" data-fr="Sur Norne, trois opérations sont chiffrées avec deux modèles qui reproduisent tous deux le passé. Gain net après impôt, en millions de dollars.">On Norne, three operations are valued with two models that both reproduce the past. Net gain after tax, in million dollars.</p>
+      <div class="bars" role="img" aria-label="New producer: 104 and 114 million dollars. Wettest well shut: 29 and 14. More water: 101 and 13." data-fr-aria="Nouveau producteur : 104 et 114 millions de dollars. Puits le plus humide fermé : 29 et 14. Plus d'eau : 101 et 13.">
+        <div class="row"><div class="name"><span data-fr="Nouveau producteur">New producer</span><small data-fr="80 M$ investis">80 M$ invested</small></div>
+          <div class="bar2"><span style="width:63%" data-v="+104 M$"></span><span class="b" style="width:69%" data-v="+114 M$"></span></div></div>
+        <div class="row"><div class="name"><span data-fr="Fermer le puits le plus humide">Shut the wettest well</span><small data-fr="2 M$ investis">2 M$ invested</small></div>
+          <div class="bar2"><span style="width:17.6%" data-v="+29 M$"></span><span class="b" style="width:8.5%" data-v="+14 M$"></span></div></div>
+        <div class="row"><div class="name"><span data-fr="30 % d'eau en plus">30 % more water</span><small data-fr="20 M$ investis">20 M$ invested</small></div>
+          <div class="bar2"><span style="width:61.2%" data-v="+101 M$"></span><span class="b" style="width:7.9%" data-v="+13 M$"></span></div></div>
+      </div>
+      <div class="key"><span><i style="background:var(--green)"></i><span data-fr="Modèle calé automatiquement">Automatic match</span></span><span><i style="background:var(--ink)"></i><span data-fr="Modèle calé à la main">Match by hand</span></span></div>
+      <ol class="decisions">
+        <li><div><b data-fr="Forer le nouveau producteur.">Drill the new producer.</b><span data-fr="Les deux modèles sont d'accord. Rentable dès 14 $ le baril.">Both models agree. It pays from 14 $ a barrel.</span></div></li>
+        <li><div><b data-fr="Fermer tout de suite le puits le plus humide.">Shut the wettest well now.</b><span data-fr="Deux millions investis, un gain dans les deux modèles.">Two million invested, a gain in both models.</span></div></li>
+        <li><div><b data-fr="Eau : mesurer avant d'engager 20 M$.">Water: measure before committing 20 M$.</b><span data-fr="Les modèles divergent de près de 90 M$. Une mesure de pression les départage.">The models differ by almost 90 M$. One pressure measurement tells them apart.</span></div></li>
+      </ol>
+      <p class="small" data-fr="Calcul de RWS, pétrole à 70 $ le baril, impôt de 78 % (Norvège, appliqué comme un seul taux). Les coûts et les chances de succès sont des hypothèses de l'étude. Modèle d'enseignement : ce n'est pas un conseil sur le champ réel.">Computed by RWS, oil at 70 $ a barrel, tax 78 % (Norway, applied as one rate). Costs and chances of success are assumptions of the study. A teaching model: this is not advice about the real field.</p>
+    </div>
+  </section>
+
+  <section class="interval" id="proof">
+    <div class="depth"><b data-fr="PREUVES">PROOF</b>3 000 m</div>
+    <div class="body">
+      <h2 data-fr="Ce qui est vérifié">What is verified</h2>
+      <div class="stats">
+        <div><b>552</b><span data-fr="tests automatiques avant chaque version">automatic tests before each version</span></div>
+        <div><b>105</b><span data-fr="leçons">lessons</span></div>
+        <div><b>3</b><span data-fr="langues : français, anglais, arabe">languages: English, French, Arabic</span></div>
+        <div><b>2</b><span data-fr="études de champ guidées">guided field studies</span></div>
+      </div>
+      <div class="two">
+        <p data-fr="Le simulateur est comparé à des cas publiés (SPE1, SPE9) et au simulateur libre de référence OPM Flow. Chaque version dit ce qui a été vérifié et ce qui ne l'a pas été.">The simulator is compared with published cases (SPE1, SPE9) and with the free reference simulator OPM Flow. Each version states what was verified and what was not.</p>
+        <p data-fr="Ce qui ne l'est pas encore : RWS n'a pas été essayé par de vrais étudiants et managers. C'est l'objet de la phase pilote.">What is not yet verified: RWS has not been tried by real students and managers. That is what the pilot phase is for.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="interval" id="key">
+    <div class="depth"><b data-fr="CLÉ">KEY</b>3 500 m</div>
+    <div class="body">
+      <h2 data-fr="Obtenir une clé">Get a key</h2>
+      <div class="price">
+        <div><span data-fr="Étudiants">Students</span><b data-fr="Gratuit">Free</b><p class="small" data-fr="Les quatre niveaux, toutes les leçons.">The four levels, every lesson.</p></div>
+        <div><span data-fr="Professionnels">Professionals</span><b>50 USD</b><p class="small" data-fr="Par clé. Une clé, un ordinateur.">Per key. One key, one computer.</p></div>
+        <div><span data-fr="Instituts et entreprises">Institutes and companies</span><b data-fr="Sur demande">On request</b><p class="small" data-fr="Licences groupées et formations.">Group licences and training.</p></div>
+      </div>
+      <div class="two">
+        <div>
+          <h3 data-fr="Comment l'activer">How to activate</h3>
+          <ol class="steps">
+            <li data-fr="Installez RWS sous Windows 10 ou 11.">Install RWS on Windows 10 or 11.</li>
+            <li data-fr="Tapez votre clé : RWS affiche le code machine de votre ordinateur.">Type your key: RWS shows the machine code of your computer.</li>
+            <li data-fr="Envoyez la clé et le code machine au producteur.">Send the key and the machine code to the producer.</li>
+            <li data-fr="Collez le code d'activation reçu. C'est fait, sans connexion internet.">Paste the activation code you receive. Done, without the internet.</li>
+          </ol>
+        </div>
+        <div>
+          <h3 data-fr="Écrire au producteur">Write to the producer</h3>
+          <p data-fr="Pour une clé, l'installateur ou une démonstration :">For a key, the installer or a demonstration:</p>
+          <p class="contact"><a href="mailto:aggoun.r.c@gmail.com">aggoun.r.c@gmail.com</a></p>
+          <p class="contact">WhatsApp +33 7 66 88 49 53</p>
+          <p class="small">Dr. Redha Chawki AGGOUN</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p data-fr="RWS ReservoirWellSurface 4.27. Logiciel libre sous licence GNU GPL version 3 ou ultérieure. RWS n'ouvre aucune connexion réseau : vos projets restent sur votre ordinateur.">RWS ReservoirWellSurface 4.27. Free software under the GNU GPL, version 3 or later. RWS opens no network connection: your projects stay on your computer.</p>
+  <p data-fr="Données de Norne : cas de référence public (projet Open Porous Media, © 2015 Statoil, Open Database License).">Norne data: public benchmark case (Open Porous Media project, © 2015 Statoil, Open Database License).</p>
+</footer>
+
+<script>
+(function () {
+  var en = {}, shots = document.querySelectorAll("img[data-shot]");
+  function set(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-fr]").forEach(function (el, i) {
+      if (!(i in en)) en[i] = el.textContent;
+      el.textContent = lang === "fr" ? el.getAttribute("data-fr") : en[i];
+    });
+    document.querySelectorAll("[data-fr-html]").forEach(function (el) {
+      if (!el.dataset.enHtml) el.dataset.enHtml = el.innerHTML;
+      el.innerHTML = lang === "fr" ? el.getAttribute("data-fr-html") : el.dataset.enHtml;
+    });
+    document.querySelectorAll("[data-fr-alt]").forEach(function (el) {
+      if (!el.dataset.enAlt) el.dataset.enAlt = el.alt;
+      el.alt = lang === "fr" ? el.getAttribute("data-fr-alt") : el.dataset.enAlt;
+    });
+    document.querySelectorAll("[data-fr-aria]").forEach(function (el) {
+      if (!el.dataset.enAria) el.dataset.enAria = el.getAttribute("aria-label");
+      el.setAttribute("aria-label", lang === "fr" ? el.getAttribute("data-fr-aria") : el.dataset.enAria);
+    });
+    shots.forEach(function (im) { im.src = "img/" + im.dataset.shot + "_" + lang + ".jpg"; });
+    document.getElementById("lang-en").setAttribute("aria-pressed", String(lang === "en"));
+    document.getElementById("lang-fr").setAttribute("aria-pressed", String(lang === "fr"));
+    try { localStorage.setItem("rws-lang", lang); } catch (e) {}
+  }
+  document.getElementById("lang-en").addEventListener("click", function () { set("en"); });
+  document.getElementById("lang-fr").addEventListener("click", function () { set("fr"); });
+  var start = "en";
+  try { start = localStorage.getItem("rws-lang") || ((navigator.language || "").slice(0, 2) === "fr" ? "fr" : "en"); } catch (e) {}
+  if (start === "fr") set("fr");
+})();
+</script>
+</body>
+</html>
