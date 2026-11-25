@@ -668,3 +668,7 @@ main [id] { scroll-margin-top: 150px; }
 .dl p { margin: 16px auto 0; max-width: 60ch; }
 .dl .sha { font-family: var(--mono); font-size: 0.75rem; overflow-wrap: anywhere; direction: ltr; }
 @media (max-width: 860px) { .dl { padding: 20px 14px; } .dl-btn { font-size: 1.125rem; padding: 16px 18px; } }
+
+/* download is red, the key is green */
+.btn.red, .btn.fill.red { background: var(--red); border-color: var(--red); color: var(--paper); }
+.dl { border-color: var(--red); }
