@@ -106,7 +106,7 @@
      With GSAP (js/vendor): an opening sequence, sections that rise in as they are reached, numbers that count up,
      a picture that drifts with the scroll and a reading bar. Only for visitors who have not asked for reduced motion.
      Without GSAP the simpler version further down runs instead. */
-  var SEL = "h2, h1.page, .lede, .stand, .tabs, .cards > div, .stats > div, .price > div, .weeks li, .decisions li, .bars .row, .band, .pilot, .check, .section-fig, .film, ol.steps li, .why-list li, .names-row";
+  var SEL = "h2, h1.page, .lede, .stand, .tabs, .cards > div, .stats > div, .price > div, .weeks li, .decisions li, .bars .row, .band, .pilot, .check, .section-fig, .film, ol.steps li, .why-list li, .names-row, .marq";
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
     if (window.SplitText) gsap.registerPlugin(SplitText);

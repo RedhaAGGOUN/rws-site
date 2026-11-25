@@ -512,3 +512,22 @@ html:not(.gsap) .why-list .n { display: block; }
 #different .stand h3 { font-size: 1.75rem; }
 #different .stand .mid h3 { color: var(--soft); }
 @media (max-width: 860px) { .names-row { grid-template-columns: minmax(0, 1fr); gap: 8px; } .names-row li { font-size: 1.375rem; } [dir="rtl"] .names-row ul { justify-content: flex-start; direction: rtl; } }
+
+/* ---------- logos of the sector ---------- */
+.logos { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; direction: ltr; }
+[dir="rtl"] .logos { justify-content: flex-end; }
+.logo { background: #fff; border: 1px solid var(--line); border-radius: 6px; height: 64px; padding: 10px 16px; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+.logo img { height: 100%; width: auto; max-width: 150px; object-fit: contain; display: block; }
+.stand .logos { margin-top: 14px; }
+.stand .logo { height: 52px; padding: 8px 12px; }
+.stand .logo img { max-width: 110px; }
+.names-row ul.logos { gap: 10px; }
+.names-row .logo { font: inherit; }
+/* the strip on the home page moves steadily; it stops under the pointer */
+.marq { overflow: hidden; direction: ltr; -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
+.marq-track { list-style: none; margin: 0; padding: 4px 0; display: flex; gap: 14px; width: max-content; animation: marq 48s linear infinite; }
+.marq-track .logo { height: 72px; padding: 12px 20px; }
+@keyframes marq { to { transform: translateX(calc(-50% - 7px)); } }
+@media (hover: hover) and (pointer: fine) { .marq:hover .marq-track { animation-play-state: paused; } }
+@media (prefers-reduced-motion: reduce) { .marq { -webkit-mask-image: none; mask-image: none; } .marq-track { animation: none; flex-wrap: wrap; width: auto; } .marq-track .logo[aria-hidden] { display: none; } }
+@media (max-width: 860px) { .logo { height: 54px; padding: 8px 12px; } .logo img { max-width: 120px; } .marq-track .logo { height: 60px; } [dir="rtl"] .logos { justify-content: flex-start; direction: rtl; } }

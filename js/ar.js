@@ -275,5 +275,8 @@ window.RWS_AR = {
 "Service companies": "شركات الخدمات",
 "Operators": "المشغّلون",
 "RWS is independent. It has no affiliation with the companies and institutes named on this page; their names are cited to describe the sector, and their trademarks belong to their owners.": "RWS مستقل. لا تربطه أي علاقة بالشركات والمعاهد المذكورة في هذه الصفحة؛ أسماؤها مذكورة لوصف القطاع، وعلاماتها التجارية ملك لأصحابها.",
-"Six choices that set RWS apart": "ستة اختيارات تميّز RWS"
+"Six choices that set RWS apart": "ستة اختيارات تميّز RWS",
+"The sector RWS serves": "القطاع الذي يخدمه RWS",
+"Names and logos are shown to describe the sector. RWS is independent of them.": "الأسماء والشعارات معروضة لوصف القطاع. RWS مستقل عنها.",
+"RWS is independent. It has no affiliation with the companies and institutes shown on this page; their names and logos describe the sector, and their trademarks belong to their owners.": "RWS مستقل. لا تربطه أي علاقة بالشركات والمعاهد المعروضة في هذه الصفحة؛ أسماؤها وشعاراتها تصف القطاع، وعلاماتها التجارية ملك لأصحابها."
 };
