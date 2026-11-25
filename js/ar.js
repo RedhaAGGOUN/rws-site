@@ -258,5 +258,22 @@ window.RWS_AR = {
 "What already exists": "ما هو موجود اليوم",
 "Four levels →": "أربعة مستويات ←",
 "Partner →": "الشراكة ←",
-"WHY": "لماذا"
+"WHY": "لماذا",
+"How RWS positions itself, and what sets it apart.": "كيف يتموضع RWS، وما الذي يميّزه.",
+"Not against the giants. Before them, and after them.": "لسنا ضد الكبار. نحن قبلهم وبعدهم.",
+"The detailed studies of the industry are made with the software of the large service companies: SLB, Halliburton and Baker Hughes. RWS replaces none of it. It works on both sides: it prepares the people who will use that software, and it helps the people who must decide from its results.": "الدراسات المفصّلة في الصناعة تُنجز ببرامج شركات الخدمات الكبرى: SLB وHalliburton وBaker Hughes. RWS لا يعوّض أيّاً منها. إنه يعمل على الجانبين: يهيّئ من سيستعملون هذه البرامج، ويساعد من عليهم أن يقرّروا انطلاقاً من نتائجها.",
+"RWS is made for students at institutes such as IAP or IFP School. They learn the whole chain, from the reservoir to the surface, and reach the heavy software already speaking its language.": "RWS مصمَّم لطلبة معاهد مثل IAP أو IFP School. يتعلّمون السلسلة كلها، من المكمن إلى السطح، ويصلون إلى البرامج الثقيلة وهم يتكلّمون لغتها.",
+"The giants": "الكبار",
+"SLB, Halliburton, Baker Hughes: their simulators carry the detailed studies. RWS does not compete with them.": "SLB وHalliburton وBaker Hughes: محاكياتها تحمل الدراسات المفصّلة. RWS لا ينافسها.",
+"Managers": "المسيّرون",
+"RWS is made for managers at operators such as Sonatrach who no longer practise simulation. They follow a study, check an order of size, and decide.": "RWS مصمَّم لمسيّري مشغّلين مثل سوناطراك ممّن لم يعودوا يمارسون المحاكاة. يتابعون دراسة، يتحققون من رتبة المقدار، ثم يقرّرون.",
+"What the giants gain": "ما يكسبه الكبار",
+"More trained users": "مستعملون مكوَّنون أكثر",
+"Every student trained on RWS is a future user of the heavy software, and needs less time to be productive on it.": "كل طالب تكوَّن على RWS هو مستعمل مقبل للبرامج الثقيلة، ويصير منتجاً عليها في وقت أقصر.",
+"Clients who understand": "زبائن يفهمون",
+"A manager who can read a study commissions it with confidence and trusts its results. RWS aims to bring the giants more clients, not to take any.": "المسيّر الذي يعرف قراءة دراسة يطلبها بثقة ويعتمد على نتائجها. RWS يريد أن يجلب للكبار زبائن، لا أن يأخذ منهم.",
+"Service companies": "شركات الخدمات",
+"Operators": "المشغّلون",
+"RWS is independent. It has no affiliation with the companies and institutes named on this page; their names are cited to describe the sector, and their trademarks belong to their owners.": "RWS مستقل. لا تربطه أي علاقة بالشركات والمعاهد المذكورة في هذه الصفحة؛ أسماؤها مذكورة لوصف القطاع، وعلاماتها التجارية ملك لأصحابها.",
+"Six choices that set RWS apart": "ستة اختيارات تميّز RWS"
 };

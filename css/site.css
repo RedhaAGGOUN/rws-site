@@ -500,3 +500,15 @@ html:not(.gsap) .why-list .n { display: block; }
   [dir="rtl"] .bar nav { -webkit-mask-image: linear-gradient(to left, #000 86%, transparent); mask-image: linear-gradient(to left, #000 86%, transparent); }
 }
 :root[lang="ar"] .why-num b, :root[lang="ar"] .why-list .n { font-style: normal; }
+
+/* ---------- names of the sector (text only, no logos) ---------- */
+.names { margin-top: 34px; border: 1px solid var(--line); }
+.names-row { display: grid; grid-template-columns: minmax(0, 190px) minmax(0, 1fr); gap: 20px; align-items: center; padding: 18px 20px; border-bottom: 1px solid var(--line); }
+.names-row:last-child { border-bottom: 0; }
+.names-row > span { font: 500 0.75rem var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--soft); }
+.names-row ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 34px; direction: ltr; }
+[dir="rtl"] .names-row ul { justify-content: flex-end; }
+.names-row li { font: 700 1.75rem/1.1 var(--display); letter-spacing: .01em; color: var(--ink); }
+#different .stand h3 { font-size: 1.75rem; }
+#different .stand .mid h3 { color: var(--soft); }
+@media (max-width: 860px) { .names-row { grid-template-columns: minmax(0, 1fr); gap: 8px; } .names-row li { font-size: 1.375rem; } [dir="rtl"] .names-row ul { justify-content: flex-start; direction: rtl; } }
