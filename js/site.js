@@ -4,39 +4,48 @@
   var root = document.documentElement;
   root.classList.add("js");
   var en = {}, shots = document.querySelectorAll("img[data-shot]");
-  var bEn = document.getElementById("lang-en"), bFr = document.getElementById("lang-fr");
+  var AR = window.RWS_AR || {}, box = document.querySelector("details.lang"), curEl = document.getElementById("lang-cur");
+  var codes = { en: "EN", fr: "FR", ar: "ع" };
+  function pick(lang, enText, frText) {
+    if (lang === "fr") return frText;
+    if (lang === "ar") return AR[enText.trim()] || enText;
+    return enText;
+  }
   function set(lang) {
-    root.lang = lang;
+    root.lang = lang; root.dir = lang === "ar" ? "rtl" : "ltr";
     document.querySelectorAll("[data-fr]").forEach(function (el, i) {
       if (!(i in en)) en[i] = el.textContent;
-      el.textContent = lang === "fr" ? el.getAttribute("data-fr") : en[i];
+      el.textContent = pick(lang, en[i], el.getAttribute("data-fr"));
     });
     document.querySelectorAll("[data-fr-html]").forEach(function (el) {
       if (!el.dataset.enHtml) el.dataset.enHtml = el.innerHTML;
-      el.innerHTML = lang === "fr" ? el.getAttribute("data-fr-html") : el.dataset.enHtml;
+      el.innerHTML = pick(lang, el.dataset.enHtml, el.getAttribute("data-fr-html"));
     });
     document.querySelectorAll("[data-fr-alt]").forEach(function (el) {
       if (!el.dataset.enAlt) el.dataset.enAlt = el.alt;
-      el.alt = lang === "fr" ? el.getAttribute("data-fr-alt") : el.dataset.enAlt;
+      el.alt = pick(lang, el.dataset.enAlt, el.getAttribute("data-fr-alt"));
     });
     document.querySelectorAll("[data-fr-aria]").forEach(function (el) {
       if (!el.dataset.enAria) el.dataset.enAria = el.getAttribute("aria-label");
-      el.setAttribute("aria-label", lang === "fr" ? el.getAttribute("data-fr-aria") : el.dataset.enAria);
+      el.setAttribute("aria-label", pick(lang, el.dataset.enAria, el.getAttribute("data-fr-aria")));
     });
     document.querySelectorAll("[data-fr-href]").forEach(function (el) {
       if (!el.dataset.enHref) el.dataset.enHref = el.getAttribute("href");
       el.setAttribute("href", lang === "fr" ? el.getAttribute("data-fr-href") : el.dataset.enHref);
     });
-    shots.forEach(function (im) { im.src = "img/" + im.dataset.shot + "_" + lang + ".jpg"; });
-    bEn.setAttribute("aria-pressed", String(lang === "en"));
-    bFr.setAttribute("aria-pressed", String(lang === "fr"));
+    shots.forEach(function (im) { im.src = "img/" + im.dataset.shot + "_" + (lang === "fr" ? "fr" : "en") + ".jpg"; });
+    if (curEl) curEl.textContent = codes[lang];
+    document.querySelectorAll("details.lang button").forEach(function (bt) { bt.setAttribute("aria-pressed", String(bt.dataset.l === lang)); });
     try { localStorage.setItem("rws-lang", lang); } catch (e) {}
   }
-  bEn.addEventListener("click", function () { set("en"); });
-  bFr.addEventListener("click", function () { set("fr"); });
-  var start = "en";
-  try { start = localStorage.getItem("rws-lang") || ((navigator.language || "").slice(0, 2) === "fr" ? "fr" : "en"); } catch (e) {}
-  if (start === "fr") set("fr");
+  document.querySelectorAll("details.lang button").forEach(function (bt) {
+    bt.addEventListener("click", function () { set(bt.dataset.l); if (box) box.open = false; });
+  });
+  document.addEventListener("click", function (e) { if (box && box.open && !box.contains(e.target)) box.open = false; });
+  var start = "en", nav2 = (navigator.language || "").slice(0, 2);
+  try { start = localStorage.getItem("rws-lang") || (codes[nav2] ? nav2 : "en"); } catch (e) {}
+  if (!codes[start]) start = "en";
+  set(start);
 
   /* the tour: four tabs, one panel shown at a time */
   var tabs = [].slice.call(document.querySelectorAll(".tabs [role=tab]"));

@@ -14,7 +14,7 @@
 <link rel="icon" href="img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,600;1,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,600;1,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
@@ -29,17 +29,21 @@
       <a href="institutes.html" data-fr="Instituts">Institutes</a>
     </nav>
     <a class="btn fill keybtn" href="key.html" data-fr="Obtenir une clé">Get a key</a>
-    <div class="lang" role="group" aria-label="Language">
-      <button type="button" id="lang-en" aria-pressed="true">EN</button>
-      <button type="button" id="lang-fr" aria-pressed="false">FR</button>
-    </div>
+    <details class="lang">
+      <summary aria-label="Language"><span id="lang-cur">EN</span></summary>
+      <div role="group" aria-label="Language">
+        <button type="button" data-l="en" lang="en">English</button>
+        <button type="button" data-l="fr" lang="fr">Français</button>
+        <button type="button" data-l="ar" lang="ar">العربية</button>
+      </div>
+    </details>
   </div>
 </header>
 
 <main class="log">
 
   <section class="interval" id="norne">
-    <div class="depth"><b data-fr="DÉCISION">DECISION</b>0 m</div>
+    <div class="depth"><b data-fr="DÉCISION">DECISION</b></div>
     <div class="body">
       <h1 class="page" data-fr="Ce qu'un manager lit">What a manager reads</h1>
       <p class="lede" data-fr="Sur Norne, trois opérations sont chiffrées avec deux modèles qui reproduisent tous deux le passé. Gain net après impôt, en millions de dollars.">On Norne, three operations are valued with two models that both reproduce the past. Net gain after tax, in million dollars.</p>
@@ -83,6 +87,7 @@
 </footer>
 
 <dialog class="lb" id="lb"><button type="button" data-fr="Fermer">Close</button><img alt=""><p></p></dialog>
+<script src="js/ar.js"></script>
 <script src="js/site.js"></script>
 </body>
 </html>

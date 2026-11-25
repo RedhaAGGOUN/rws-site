@@ -361,3 +361,52 @@ h1, h2, h3, p, li, .stats b, .price b, .tabs span { overflow-wrap: break-word; }
 .keybtn { display: inline-block; min-height: 0; padding: 10px 16px; line-height: 1.5rem; }
 @media (max-width: 860px) { .hero { grid-template-columns: minmax(0, 1fr); gap: 24px; } .keybtn { padding: 10px 12px; } }
 .bar .bar-in .keybtn { display: inline-block; padding: 10px 16px; line-height: 1.5rem; min-height: 0; }
+
+/* ---------- language menu ---------- */
+details.lang { position: relative; border: 1px solid var(--line); border-radius: 4px; overflow: visible; display: block; }
+details.lang summary { list-style: none; cursor: pointer; min-width: 58px; min-height: 44px; display: flex; align-items: center; justify-content: center; gap: 6px; font: 500 0.875rem var(--mono); color: var(--ink); padding: 0 10px; }
+details.lang summary::-webkit-details-marker { display: none; }
+details.lang summary::after { content: ""; width: 7px; height: 7px; border-right: 2px solid var(--soft); border-bottom: 2px solid var(--soft); transform: rotate(45deg) translateY(-2px); }
+details.lang summary:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+details.lang > div { position: absolute; top: calc(100% + 6px); inset-inline-end: 0; z-index: 10; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; display: grid; min-width: 150px; box-shadow: 0 10px 30px rgba(0, 0, 0, .18); }
+details.lang > div button { font: 500 1rem var(--body); min-height: 44px; padding: 8px 14px; text-align: start; border: 0; background: transparent; color: var(--ink); cursor: pointer; }
+details.lang > div button:hover { background: var(--panel); }
+details.lang > div button[aria-pressed="true"] { background: var(--green); color: var(--paper); }
+.depth { padding-top: 38px; }
+
+/* ---------- Arabic, right to left ---------- */
+:root[lang="ar"] { --display: "IBM Plex Sans Arabic", "Noto Kufi Arabic", "Segoe UI", Tahoma, sans-serif; --body: "IBM Plex Sans Arabic", "Noto Sans Arabic", "Segoe UI", Tahoma, sans-serif; --mono: "IBM Plex Sans Arabic", "Noto Sans Arabic", "Segoe UI", Tahoma, sans-serif; }
+:root[lang="ar"] * { letter-spacing: 0 !important; }
+:root[lang="ar"] h1, :root[lang="ar"] h2, :root[lang="ar"] h3, :root[lang="ar"] .tabs span { font-style: normal; line-height: 1.25; text-transform: none; }
+:root[lang="ar"] h1 { font-size: clamp(2.25rem, 4.6vw, 3.75rem); }
+:root[lang="ar"] body { line-height: 1.8; }
+:root[lang="ar"] .eyebrow, :root[lang="ar"] .depth, :root[lang="ar"] .tabs small, :root[lang="ar"] figcaption, :root[lang="ar"] .legend, :root[lang="ar"] .facts, :root[lang="ar"] .stand span, :root[lang="ar"] .price span, :root[lang="ar"] .weeks .wk { font-size: 0.875rem; }
+[dir="rtl"] .depth { border-right: 0; border-left: 1px solid var(--line); text-align: left; padding: 38px 0 0 10px; background-position: left top; }
+[dir="rtl"] .body { padding-left: 0; padding-right: 28px; }
+[dir="rtl"] .bar nav { margin-left: 0; margin-right: auto; }
+[dir="rtl"] .stand div, [dir="rtl"] .stats div, [dir="rtl"] .price div, [dir="rtl"] .tabs button, [dir="rtl"] .tabs.links a, [dir="rtl"] .cards div { border-right: 0; border-left: 1px solid var(--line); }
+[dir="rtl"] .stand div:last-child, [dir="rtl"] .stats div:last-child, [dir="rtl"] .price div:last-child, [dir="rtl"] .tabs button:last-child, [dir="rtl"] .tabs.links a:last-child, [dir="rtl"] .cards div:nth-child(3n) { border-left: 0; }
+[dir="rtl"] .level ul, [dir="rtl"] .check ul { padding-left: 0; padding-right: 18px; }
+[dir="rtl"] ol.steps { padding-left: 0; padding-right: 22px; }
+[dir="rtl"] .bar2 span::after { left: auto; right: calc(100% + 8px); }
+[dir="rtl"] .legend i, [dir="rtl"] .key i { margin-right: 0; margin-left: 6px; }
+[dir="rtl"] .weeks li { border-left: 0; border-right: 4px solid var(--green); padding: 18px 18px 18px 0; }
+[dir="rtl"] .weeks h3 small { margin-left: 0; margin-right: 8px; }
+[dir="rtl"] .check { border-left: 0; border-right: 4px solid var(--green); padding: 4px 20px 4px 0; }
+[dir="rtl"] .check.todo { border-right-color: var(--red); }
+[dir="rtl"] .tour-nav .hint { margin-left: 0; margin-right: auto; }
+[dir="rtl"] .zoom::after { right: auto; left: 10px; }
+[dir="rtl"] .section-fig svg, [dir="rtl"] .contact, [dir="rtl"] .reach a { direction: ltr; }
+[dir="rtl"] .section-fig text { font-size: 15px; }
+[dir="rtl"] .hero figure .pan img { animation: none; }
+@media (max-width: 860px) {
+  [dir="rtl"] .body { padding-right: 0; }
+  [dir="rtl"] .keybtn { margin-left: 0; margin-right: auto; }
+  [dir="rtl"] .stand div, [dir="rtl"] .stats div, [dir="rtl"] .price div, [dir="rtl"] .cards div { border-left: 0; }
+  [dir="rtl"] .tabs.links a:nth-child(2n) { border-left: 0; }
+  [dir="rtl"] .bar2 { padding-right: 0; padding-left: 86px; }
+  [dir="rtl"] .stats.six div { border-right: 0; border-left: 1px solid var(--line); }
+  [dir="rtl"] .stats.six div:nth-child(2n) { border-left: 0; }
+}
+[dir="rtl"] .bar2 span::after { direction: ltr; unicode-bidi: isolate; }
+:root[lang="ar"] h1 em { font-style: normal; }

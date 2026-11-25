@@ -14,7 +14,7 @@
 <link rel="icon" href="img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,600;1,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,600;1,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
@@ -29,17 +29,21 @@
       <a href="institutes.html" aria-current="page" data-fr="Instituts">Institutes</a>
     </nav>
     <a class="btn fill keybtn" href="key.html" data-fr="Obtenir une clé">Get a key</a>
-    <div class="lang" role="group" aria-label="Language">
-      <button type="button" id="lang-en" aria-pressed="true">EN</button>
-      <button type="button" id="lang-fr" aria-pressed="false">FR</button>
-    </div>
+    <details class="lang">
+      <summary aria-label="Language"><span id="lang-cur">EN</span></summary>
+      <div role="group" aria-label="Language">
+        <button type="button" data-l="en" lang="en">English</button>
+        <button type="button" data-l="fr" lang="fr">Français</button>
+        <button type="button" data-l="ar" lang="ar">العربية</button>
+      </div>
+    </details>
   </div>
 </header>
 
 <main class="log">
 
   <section class="interval" id="top">
-    <div class="depth"><b>R · W · S</b>0 m</div>
+    <div class="depth"><b>R · W · S</b></div>
     <div class="body">
       <div class="hero">
         <div>
@@ -60,7 +64,7 @@
   </section>
 
   <section class="interval" id="inside">
-    <div class="depth"><b data-fr="CONTENU">INSIDE</b>500 m</div>
+    <div class="depth"><b data-fr="CONTENU">INSIDE</b></div>
     <div class="body">
       <h2 data-fr="Ce qu'une classe reçoit">What a class receives</h2>
       <p class="lede" data-fr="Le cours, les exercices et le champ d'étude sont dans le programme. Il n'y a rien d'autre à préparer.">The course, the exercises and the field to study are in the program. There is nothing else to prepare.</p>
@@ -76,7 +80,7 @@
   </section>
 
   <section class="interval" id="room">
-    <div class="depth"><b data-fr="SALLE">ROOM</b>1 000 m</div>
+    <div class="depth"><b data-fr="SALLE">ROOM</b></div>
     <div class="body">
       <h2 data-fr="Fait pour une salle de cours">Made for a classroom</h2>
       <div class="cards">
@@ -91,7 +95,7 @@
   </section>
 
   <section class="interval" id="semester">
-    <div class="depth"><b data-fr="SEMESTRE">SEMESTER</b>1 500 m</div>
+    <div class="depth"><b data-fr="SEMESTRE">SEMESTER</b></div>
     <div class="body">
       <h2 data-fr="Un semestre avec RWS">A semester with RWS</h2>
       <p class="lede" data-fr="Une proposition sur douze semaines, à adapter à votre programme. Elle suit les quatre niveaux, de la première leçon à la note de décision.">A suggestion over twelve weeks, to adapt to your course. It follows the four levels, from the first lesson to the decision brief.</p>
@@ -107,7 +111,7 @@
   </section>
 
   <section class="interval" id="licences">
-    <div class="depth"><b data-fr="LICENCES">LICENCES</b>2 500 m</div>
+    <div class="depth"><b data-fr="LICENCES">LICENCES</b></div>
     <div class="body">
       <h2 data-fr="Les licences pour un groupe">Licences for a group</h2>
       <div class="price">
@@ -126,7 +130,7 @@
   </section>
 
   <section class="interval" id="pilot">
-    <div class="depth"><b data-fr="PILOTE">PILOT</b>3 000 m</div>
+    <div class="depth"><b data-fr="PILOTE">PILOT</b></div>
     <div class="body">
       <h2 data-fr="La phase pilote">The pilot phase</h2>
       <div class="pilot">
@@ -177,6 +181,7 @@
 </footer>
 
 <dialog class="lb" id="lb"><button type="button" data-fr="Fermer">Close</button><img alt=""><p></p></dialog>
+<script src="js/ar.js"></script>
 <script src="js/site.js"></script>
 </body>
 </html>
