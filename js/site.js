@@ -157,6 +157,53 @@
           gsap.fromTo(pics, { scale: 1.04, yPercent: 0 }, { scale: 1.14, yPercent: -5, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 1 } });
         }
       }
+      /* the journey of one drop, in a loop: logo, oil in the rock, the well, the surface, money, logo again.
+         The drop stays in the middle of the frame and the world slides under it, as if a camera followed it. */
+      var jw = document.getElementById("j-world");
+      if (jw) {
+        var veil = document.getElementById("j-veil"), dropG = document.getElementById("j-drop");
+        var logo = document.getElementById("j-logo"), oil = document.getElementById("j-oil"), coin = document.getElementById("j-coin");
+        var labs = gsap.utils.toArray(".j-lab"), cam = { x: 430, y: 850, s: 2.6 };
+        function look() { jw.setAttribute("transform", "translate(" + (400 - cam.x * cam.s) + " " + (225 - cam.y * cam.s) + ") scale(" + cam.s + ")"); }
+        dropG.setAttribute("transform", "translate(400 225)");
+        gsap.set([logo, oil, coin], { svgOrigin: "0 0" });
+        gsap.set(veil, { opacity: 1 }); gsap.set(logo, { scale: 1, opacity: 1 }); gsap.set(oil, { scale: 1, opacity: 0 }); gsap.set(coin, { scaleX: 0, opacity: 0 });
+        look();
+        var jt = gsap.timeline({ repeat: -1, repeatDelay: 0.2, defaults: { ease: "power2.inOut" }, onUpdate: look });
+        function lab(i, at) { jt.to(labs, { opacity: 0, duration: 0.25, ease: "none" }, at); if (i >= 0) jt.to(labs[i], { opacity: 1, duration: 0.35, ease: "none" }, at + 0.15); }
+        /* 1. the logo, then it becomes a drop of oil between the grains */
+        jt.to(logo, { scale: 0.34, duration: 1, ease: INOUT }, 1.3)
+          .to(logo, { opacity: 0, duration: 0.5, ease: "none" }, 1.8)
+          .set(oil, { scale: 0.34 }, 1.3).to(oil, { opacity: 1, duration: 0.5, ease: "none" }, 1.7)
+          .to(veil, { opacity: 0, duration: 0.9, ease: "none" }, 1.4);
+        lab(0, 1.9);
+        /* 2. through the pores to the well */
+        jt.to(cam, { keyframes: [{ x: 560, y: 822 }, { x: 690, y: 878 }, { x: 820, y: 832 }, { x: 950, y: 868 }, { x: 1100, y: 846, s: 1.9 }], duration: 3.2, ease: "sine.inOut" }, 2.5);
+        /* 3. up the well */
+        lab(1, 5.6);
+        jt.to(oil, { scale: 0.2, duration: 0.5 }, 5.4).to(oil, { scale: 0.3, duration: 0.5 }, 8.5);
+        jt.to(cam, { y: 300, s: 1.35, duration: 2.6 }, 5.8)
+          .to(cam, { y: 236, s: 1.5, duration: 0.6, ease: "power1.out" }, 8.4);
+        /* 4. along the surface: separator, tank, sale */
+        lab(2, 8.5);
+        jt.to(cam, { x: 1740, duration: 2.6, ease: "power1.inOut" }, 9.0);
+        /* 5. the drop becomes money */
+        lab(3, 11.5);
+        jt.to(oil, { scaleX: 0, duration: 0.3, ease: "power2.in" }, 11.6)
+          .set(oil, { opacity: 0 }, 11.9).set(coin, { opacity: 1, scaleY: 0.5 }, 11.9)
+          .to(coin, { scaleX: 0.5, duration: 0.35, ease: OUT }, 11.9)
+          .to(coin, { scaleX: 1, scaleY: 1, duration: 0.6, ease: "back.out(1.6)" }, 12.3)
+          .to(veil, { opacity: 1, duration: 0.7, ease: "none" }, 12.4);
+        /* 6. back to the logo */
+        lab(-1, 13.3);
+        jt.to(coin, { scaleX: 0, duration: 0.3, ease: "power2.in" }, 13.5)
+          .set(coin, { opacity: 0 }, 13.8).set(logo, { opacity: 1, scaleX: 0, scaleY: 1 }, 13.8)
+          .to(logo, { scaleX: 1, duration: 0.45, ease: OUT }, 13.8)
+          .set(cam, { x: 430, y: 850, s: 2.6 }, 14.3)
+          .to({}, { duration: 0.9 }, 14.3);
+        /* it rests when it is out of sight */
+        ScrollTrigger.create({ trigger: jw.ownerSVGElement, start: "top bottom", end: "bottom top", onToggle: function (self) { if (self.isActive) jt.play(); else jt.pause(); } });
+      }
       /* sections arrive the first time they are reached. Not everything moves the same way:
          the heading travels furthest, supporting pieces less, boxed notices fade in place, the sketch is wiped open
          from the side the language reads from. Groups overlap with delays that shrink, never a metronome. */

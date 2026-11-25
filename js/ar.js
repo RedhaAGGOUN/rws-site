@@ -327,5 +327,9 @@ window.RWS_AR = {
 "Our vision and values →": "رؤيتنا وقيمنا ←",
 "The startup behind RWS, and where to find us.": "المؤسسة الناشئة وراء RWS، وأين تجدوننا.",
 "Map of Bou Saâda": "خريطة بوسعادة",
-"WHO": "من نحن"
+"WHO": "من نحن",
+"WELL": "البئر",
+"PROFIT": "الربح",
+"From the pore to the profit: the path of one drop.": "من المسام إلى الربح: مسار قطرة واحدة.",
+"Animation: the drop of the RWS logo becomes a drop of oil in the reservoir, flows to the well, rises to the surface, becomes money, and returns to the logo.": "حركة: قطرة شعار RWS تصير قطرة نفط في المكمن، تنساب نحو البئر، تصعد إلى السطح، تصير مالاً، ثم تعود إلى الشعار."
 };

@@ -572,3 +572,9 @@ html:not(.gsap) .why-list .n { display: block; }
 @media (min-width: 861px) { .bar nav { gap: 14px; font-size: 0.9rem; flex-wrap: nowrap; white-space: nowrap; } .bar-in { gap: 16px; } }
 @media (min-width: 861px) and (max-width: 1240px) { .bar nav { gap: 10px; font-size: 0.8125rem; } .bar .keybtn { padding: 10px 12px; font-size: 0.875rem; } .bar img { height: 38px; } }
 @media (min-width: 861px) and (max-width: 1040px) { .bar-in { flex-wrap: wrap; } .bar nav { order: 3; width: 100%; margin-left: 0; gap: 16px; font-size: 0.875rem; } .bar .keybtn { margin-left: auto; } [dir="rtl"] .bar .keybtn { margin-left: 0; margin-right: auto; } }
+
+/* ---------- the journey of one drop (home page) ---------- */
+.journey-fig { margin: 0; border: 1px solid var(--line); background: var(--fig); overflow: hidden; }
+.journey { display: block; width: 100%; height: auto; direction: ltr; }
+.journey .j-lab { font: 700 1.5rem var(--display); letter-spacing: .14em; fill: #101612; paint-order: stroke; stroke: #fff; stroke-width: 5px; }
+:root[lang="ar"] .journey .j-lab { font-size: 1.625rem; }
