@@ -420,3 +420,13 @@ details.lang > div button[aria-pressed="true"] { background: var(--green); color
 .film .eyebrow { margin-bottom: 8px; }
 a.go { display: inline-flex; align-items: center; min-height: 44px; font: 500 0.8125rem var(--mono); letter-spacing: .08em; text-transform: uppercase; text-decoration: none; }
 @media (max-width: 860px) { .film { grid-template-columns: minmax(0, 1fr); gap: 14px; } }
+
+/* ---------- GSAP motion ---------- */
+.gsap .hero figure .pan img { animation: none; will-change: transform; }
+.gsap.js .level:not([hidden]) figure { animation: none; }
+.bar { position: sticky; }
+.progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: var(--green); transform: scaleX(0); transform-origin: left center; }
+[dir="rtl"] .progress { transform-origin: right center; }
+.row.grow .bar2 span { animation: grow .9s cubic-bezier(.2, .7, .2, 1) both; }
+.row.grow .bar2 span.b { animation-delay: .15s; }
+@media (prefers-reduced-motion: reduce) { .row.grow .bar2 span { animation: none; } }
