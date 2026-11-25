@@ -313,5 +313,14 @@ window.RWS_AR = {
 "Generosity": "الكرم",
 "We give knowledge before we ask for anything.": "نعطي المعرفة قبل أن نطلب شيئاً.",
 "We share what we know, credit the work of others, and say plainly what we have not verified.": "نشارك ما نعرف، وننسب العمل إلى أصحابه، ونقول بوضوح ما لم نتحقق منه.",
-"Free access for students, open source, and honest limits.": "وصول مجاني للطلبة، ومصدر مفتوح، وحدود معلنة بصدق."
+"Free access for students, open source, and honest limits.": "وصول مجاني للطلبة، ومصدر مفتوح، وحدود معلنة بصدق.",
+"Who we are": "من نحن",
+"RWS is a startup led by Dr. Redha Chawki AGGOUN, petroleum engineer and producer of the program, with more than twenty years of international experience.": "RWS مؤسسة ناشئة يقودها الدكتور رضا شوقي عڤون، مهندس بترول ومنتج البرنامج، بخبرة دولية تفوق عشرين سنة.",
+"LinkedIn profile": "الملف على لينكدإن",
+"Write to us": "راسلنا",
+"Address": "العنوان",
+"12/4, rue El Badr, Bou Saâda, Algeria": "12/4، شارع البدر، بوسعادة، الجزائر",
+"Near the Lycée Ziri Ben Menad, shown by the marker on the map.": "قرب ثانوية زيري بن مناد، المشار إليها بالعلامة على الخريطة.",
+"Open in Google Maps": "افتح في خرائط غوغل",
+"Map of Bou Saâda around the Lycée Ziri Ben Menad": "خريطة بوسعادة حول ثانوية زيري بن مناد"
 };
