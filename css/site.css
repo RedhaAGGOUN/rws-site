@@ -594,3 +594,27 @@ html:not(.gsap) .why-list .n { display: block; }
 .hero.solo h1 { max-width: 16ch; }
 .hero.solo .lede { max-width: 62ch; }
 @media (max-width: 860px) { #top .body { padding-top: 12px; } .hero.solo { margin-top: 20px; } .intro-film video.loop { max-height: none; } }
+
+/* ---------- five entries: intro, what, why, how, who ---------- */
+body.intro { min-height: 100vh; display: flex; flex-direction: column; }
+body.intro .log { max-width: none; padding: 0; flex: 1; display: flex; }
+.intro-stage { flex: 1; display: flex; align-items: center; justify-content: center; background: #fff; }
+.intro-stage .intro-film { width: 100%; }
+.intro-stage .journey-fig { border: 0; background: #fff; }
+.intro-stage video.loop { width: 100%; height: calc(100vh - 70px); max-height: none; object-fit: contain; background: #fff; }
+.cards.two-up { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cards.two-up div:nth-child(3n) { border-right: 1px solid var(--line); }
+.cards.two-up div:nth-child(2n) { border-right: 0; }
+.cards.two-up div { border-bottom: 0; }
+[dir="rtl"] .cards.two-up div:nth-child(2n) { border-left: 0; }
+.howto > li { align-items: start; }
+.howto .h-step { font-size: clamp(1.75rem, 3.4vw, 2.5rem); text-transform: none; margin-bottom: 16px; }
+.howto .price, .howto .pilot { margin-top: 0; margin-bottom: 14px; }
+.howto ol.steps { margin-top: 0; }
+.howto .band { margin-top: 0; }
+#what .hero.solo { margin-top: 6px; }
+@media (max-width: 860px) { .cards.two-up { grid-template-columns: minmax(0, 1fr); } .intro-stage video.loop { height: auto; max-height: calc(100vh - 130px); } }
+.howto ol.steps li { display: list-item; grid-template-columns: none; padding: 0; border: 0; margin-bottom: 8px; }
+.howto ol.steps { padding-left: 22px; max-width: 65ch; }
+[dir="rtl"] .howto ol.steps { padding-left: 0; padding-right: 22px; }
+.intro-stage video.loop { cursor: pointer; }

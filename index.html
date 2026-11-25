@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RWS ReservoirWellSurface — oil and gas simulator for students and managers</title>
-<meta name="description" content="RWS is the oil and gas simulator for students and managers: the reservoir, the wells and the surface in one program. The program speaks English, French and Arabic. Learn, practise, build, decide.">
+<title>RWS ReservoirWellSurface — the whole field in one view, from the pore to the profit</title>
+<meta name="description" content="RWS is the oil and gas production simulator for students and managers: the reservoir, the wells and the surface in one program.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="RWS ReservoirWellSurface — oil and gas simulator for students and managers">
-<meta property="og:description" content="RWS is the oil and gas simulator for students and managers: the reservoir, the wells and the surface in one program. The program speaks English, French and Arabic. Learn, practise, build, decide.">
+<meta property="og:title" content="RWS ReservoirWellSurface — the whole field in one view, from the pore to the profit">
+<meta property="og:description" content="RWS is the oil and gas production simulator for students and managers: the reservoir, the wells and the surface in one program.">
 <meta property="og:image" content="https://redhaaggoun.github.io/rws-site/img/norne3d.jpg">
 <meta property="og:url" content="https://redhaaggoun.github.io/rws-site/">
 <meta name="twitter:card" content="summary_large_image">
@@ -16,25 +16,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,600;1,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=20">
+<link rel="stylesheet" href="css/site.css?v=21">
 </head>
-<body>
+<body class="intro">
 
 <header class="bar">
   <div class="bar-in">
     <a class="home" href="index.html" aria-label="RWS, home" data-fr-aria="RWS, accueil"><img class="logo-light" src="img/logo.png" width="396" height="132" alt="RWS ReservoirWellSurface"><img class="logo-dark" src="img/logo_dark.png" width="396" height="132" alt="RWS ReservoirWellSurface"></a>
     <nav aria-label="Pages">
-      <a href="different.html" data-fr="Pourquoi RWS">Why RWS</a>
-      <a href="levels.html" data-fr="Quatre niveaux">Four levels</a>
-      <a href="decide.html" data-fr="Décider">Decide</a>
-      <a href="proof.html" data-fr="Les preuves">Proof</a>
-      <a href="films.html" data-fr="Films">Films</a>
-      <a href="institutes.html" data-fr="Instituts">Institutes</a>
-      <a href="partner.html" data-fr="Associé">Partner</a>
-      <a href="vision.html" data-fr="Vision">Vision</a>
-      <a href="about.html" data-fr="À propos">About</a>
+      <a href="index.html" aria-current="page" data-fr="Intro">Intro</a>
+      <a href="what.html" data-fr="Quoi">What</a>
+      <a href="why.html" data-fr="Pourquoi">Why</a>
+      <a href="how.html" data-fr="Comment">How</a>
+      <a href="who.html" data-fr="Qui">Who</a>
     </nav>
-    <a class="btn fill keybtn" href="key.html" data-fr="Obtenir une clé">Get a key</a>
+    <a class="btn fill keybtn" href="how.html#key" data-fr="Obtenir une clé">Get a key</a>
     <details class="lang">
       <summary aria-label="Language"><span id="lang-cur">EN</span></summary>
       <div role="group" aria-label="Language">
@@ -48,181 +44,21 @@
 
 <main class="log">
 
-  <section class="interval" id="top">
-    <div class="depth"><b>R · W · S</b></div>
-    <div class="body">
+  <section class="intro-stage">
       <div class="intro-film">
         <figure class="journey-fig">
           <video class="loop" autoplay muted loop playsinline preload="auto" poster="img/poster_loop.jpg" width="1280" height="720" aria-label="Animation: the drop of the RWS logo becomes a drop of oil in the reservoir, flows to the well, rises to the surface, becomes money, and returns to the logo." data-fr-aria="Animation : la goutte du logo RWS devient une goutte d'huile dans le gisement, s'écoule vers le puits, monte à la surface, devient de l'argent, puis revient au logo."><source src="video/pore-to-profit.mp4" type="video/mp4"></video>
           <button type="button" class="snd" aria-pressed="false"><span class="on" data-fr="Activer le son">Sound on</span><span class="off" data-fr="Couper le son">Sound off</span></button>
-          <figcaption data-fr="Du pore au profit : le trajet d'une goutte.">From the pore to the profit: the path of one drop.</figcaption>
         </figure>
       </div>
-      <div class="hero solo">
-        <div>
-          <p class="eyebrow" data-fr="Simulateur de production pétrole et gaz">Oil and gas production simulator</p>
-          <h1 data-fr-html="Comprendre un champ. <em>Puis décider.</em>">Understand a field. <em>Then decide.</em></h1>
-          <p class="lede" style="margin-top:18px" data-fr="RWS est le simulateur pétrole et gaz pour les étudiants et les managers : le gisement, les puits et la surface dans un seul programme. Le programme parle français, anglais et arabe.">RWS is the oil and gas simulator for students and managers: the reservoir, the wells and the surface in one program. The program speaks English, French and Arabic.</p>
-          <div class="cta">
-            <a class="btn fill" href="key.html" data-fr="Obtenir une clé">Get a key</a>
-            <a class="btn line" href="levels.html" data-fr="Visiter les quatre niveaux">Tour the four levels</a>
-          </div>
-          <ul class="facts">
-            <li><b>105</b><span data-fr="leçons">lessons</span></li>
-            <li><b>16</b><span data-fr="exemples résolus">worked examples</span></li>
-            <li><b>2</b><span data-fr="études de champ">field studies</span></li>
-            <li><b>3</b><span data-fr="langues">languages</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <figure class="section-fig">
-        <svg viewBox="0 0 1100 250" role="img" aria-label="Sketch: water injected on the left pushes the oil through the reservoir to the producing well, then to the surface and the export line." data-fr-aria="Schéma : l'eau injectée à gauche pousse l'huile dans le gisement vers le puits producteur, puis vers la surface et la ligne d'export.">
-          <g class="mir">
-          <defs><clipPath id="res"><path d="M60 176 Q550 126 1040 176 L1040 220 Q550 170 60 220 Z"/></clipPath></defs>
-          <path class="st" d="M0 64 H1100"/>
-          <path class="st" d="M60 106 Q550 70 1040 106"/>
-          <path class="st" d="M60 140 Q550 96 1040 140"/>
-          <g clip-path="url(#res)">
-            <rect x="60" y="110" width="980" height="120" fill="#33b85c"/>
-            <ellipse cx="550" cy="150" rx="150" ry="14" fill="#d91a2e"/>
-            <rect class="water" x="60" y="110" width="660" height="120" fill="#1254cc"/>
-          </g>
-          <path d="M220 64 V190" stroke="#1254cc" stroke-width="4" fill="none"/>
-          <path class="flow" d="M220 64 V190" stroke="#fff" stroke-width="1.5" fill="none" opacity=".8"/>
-          <path class="ink" d="M860 190 V64" stroke-width="4"/>
-          <path class="ink flow" d="M860 64 V40 H640" stroke-width="2.5"/>
-          <rect class="ink" x="560" y="26" width="80" height="28" rx="14" stroke-width="2.5"/>
-          <path class="ink flow" d="M560 40 H420" stroke-width="2.5"/>
-          <path class="ink" d="M432 32 L418 40 L432 48" stroke-width="2.5"/>
-          <path d="M220 64 V40 H120" stroke="#1254cc" stroke-width="2.5" fill="none"/>
-          <circle cx="220" cy="64" r="6" fill="#1254cc"/><circle cx="860" cy="64" r="6" fill="var(--ink)"/>
-          </g>
-          <text x="1040" y="46" text-anchor="end" data-fr="SURFACE">SURFACE</text>
-          <text x="1040" y="88" text-anchor="end" data-fr="PUITS">WELLS</text>
-          <text x="1040" y="240" text-anchor="end" data-fr="GISEMENT">RESERVOIR</text>
-          <text x="232" y="92" data-fr="EAU INJECTÉE">WATER IN</text>
-          <text x="760" y="92" text-anchor="end" data-fr="HUILE PRODUITE">OIL OUT</text>
-          <text x="410" y="30" text-anchor="end" data-fr="EXPORT">EXPORT</text>
-        </svg>
-        <figcaption data-fr="Le gisement, les puits et la surface calculés ensemble : c'est ce que RWS veut dire.">The reservoir, the wells and the surface computed together: that is what RWS stands for.</figcaption>
-      </figure>
-    </div>
   </section>
-
-  <section class="interval" id="place">
-    <div class="depth"><b data-fr="PLACE">PLACE</b></div>
-    <div class="body">
-      <h2 data-fr="Avant et après les logiciels lourds">Before and after the heavy software</h2>
-      <p class="lede" data-fr="RWS ne concurrence pas les grands simulateurs techniques. Il prépare à leur usage, puis il aide à lire leurs résultats.">RWS does not compete with the large technical simulators. It prepares people to use them, then helps to read what they produce.</p>
-      <div class="stand">
-        <div class="rws"><span data-fr="Avant">Before</span><h3>RWS</h3><p data-fr="L'étudiant apprend le langage des experts avec une vue d'ensemble, du pore jusqu'à la ligne d'export.">The student learns the language of the experts with the whole picture, from the pore to the export line.</p></div>
-        <div class="mid"><span data-fr="Pendant">During</span><h3 data-fr="Les grands simulateurs">The large simulators</h3><p data-fr="Les spécialistes mènent les études techniques détaillées.">Specialists carry out the detailed technical studies.</p></div>
-        <div class="rws"><span data-fr="Après">After</span><h3>RWS</h3><p data-fr="Le manager suit le raisonnement d'une étude, vérifie un ordre de grandeur, et décide.">The manager follows the reasoning of a study, checks an order of size, and decides.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="interval" id="vision">
-    <div class="depth"><b data-fr="VISION">VISION</b></div>
-    <div class="body">
-      <div class="creed" style="margin-top:0">
-        <p class="eyebrow" data-fr="Vision">Vision</p>
-        <p class="say" data-fr="Tout le champ d'un seul regard, du pore au profit.">The whole field in one view, from the pore to the profit.</p>
-      </div>
-      <p style="margin:6px 0 0"><a class="go" href="vision.html" data-fr="Notre vision et nos valeurs &#8594;">Our vision and values &#8594;</a></p>
-    </div>
-  </section>
-
-  <section class="interval" id="why">
-    <div class="depth"><b data-fr="POURQUOI">WHY</b></div>
-    <div class="body">
-      <p class="eyebrow" data-fr="Le secteur que sert RWS">The sector RWS serves</p>
-      <div class="marq" role="group" aria-label="SLB, Halliburton, Baker Hughes, Weatherford, Beicip-Franlab, Sonatrach, Eni, TotalEnergies, Equinor, Occidental, Repsol, IAP, IFP">
-        <ul class="marq-track"><li class="logo"><img src="img/logos/slb.png" width="263" height="160" alt="SLB" loading="lazy"></li><li class="logo"><img src="img/logos/halliburton.png" width="284" height="48" alt="Halliburton" loading="lazy"></li><li class="logo"><img src="img/logos/baker-hughes.png" width="245" height="142" alt="Baker Hughes" loading="lazy"></li><li class="logo"><img src="img/logos/weatherford.png" width="270" height="113" alt="Weatherford" loading="lazy"></li><li class="logo"><img src="img/logos/beicip-franlab.png" width="279" height="86" alt="Beicip-Franlab" loading="lazy"></li><li class="logo"><img src="img/logos/sonatrach.png" width="108" height="160" alt="Sonatrach" loading="lazy"></li><li class="logo"><img src="img/logos/eni.png" width="151" height="160" alt="Eni" loading="lazy"></li><li class="logo"><img src="img/logos/totalenergies.png" width="230" height="160" alt="TotalEnergies" loading="lazy"></li><li class="logo"><img src="img/logos/equinor.png" width="207" height="160" alt="Equinor" loading="lazy"></li><li class="logo"><img src="img/logos/oxy.png" width="155" height="160" alt="Occidental" loading="lazy"></li><li class="logo"><img src="img/logos/repsol.png" width="212" height="160" alt="Repsol" loading="lazy"></li><li class="logo"><img src="img/logos/iap.png" width="160" height="160" alt="IAP, Algerian Petroleum Institute" loading="lazy"></li><li class="logo"><img src="img/logos/ifp.png" width="221" height="160" alt="IFP" loading="lazy"></li><li class="logo" aria-hidden="true"><img src="img/logos/slb.png" width="263" height="160" alt="" loading="lazy"></li><li class="logo" aria-hidden="true"><img src="img/logos/halliburton.png" width="284" height="48" alt="" loading="lazy"></li><li class="logo" aria-hidden="true"><img src="img/logos/baker-hughes.png" width="245" height="142" alt="" loading="lazy"></li><li class="logo" aria-hidden="true"><img src="img/logos/weatherford.png" width="270" height="113" alt="" loading="lazy"></li><li class="logo" aria-hidden="true"><img src="img/logos/beicip-franlab.png" width="279" height="86" alt="" loading="lazy"></li><li class="logo" aria-hidden="true"><img src="img/logos/sonatrach.png" width="108" height="160" alt="" loading="lazy"></li><li class="logo" aria-hidden="true"><img src="img/logos/eni.png" width="151" height="160" alt="" loading="lazy"></li><li class="logo" aria-hidden="true"><img src="img/logos/totalenergies.png" width="230" height="160" alt="" loading="lazy"></li><li class="logo" aria-hidden="true"><img src="img/logos/equinor.png" width="207" height="160" alt="" loading="lazy"></li><li class="logo" aria-hidden="true"><img src="img/logos/oxy.png" width="155" height="160" alt="" loading="lazy"></li><li class="logo" aria-hidden="true"><img src="img/logos/repsol.png" width="212" height="160" alt="" loading="lazy"></li><li class="logo" aria-hidden="true"><img src="img/logos/iap.png" width="160" height="160" alt="" loading="lazy"></li><li class="logo" aria-hidden="true"><img src="img/logos/ifp.png" width="221" height="160" alt="" loading="lazy"></li></ul>
-      </div>
-      <p class="small" style="margin:10px 0 22px" data-fr="Noms et logos sont montrés pour décrire le secteur. RWS en est indépendant.">Names and logos are shown to describe the sector. RWS is independent of them.</p>
-      <div class="band" style="margin-top:0">
-        <p data-fr="Pourquoi RWS ? Six choix qui le distinguent.">Why RWS? Six choices that set it apart.</p>
-        <a class="btn line" href="different.html" data-fr="Ce qui rend RWS différent →">What makes RWS different &#8594;</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="interval" id="levels">
-    <div class="depth"><b data-fr="NIVEAUX">LEVELS</b></div>
-    <div class="body">
-      <h2 data-fr="Quatre niveaux">Four levels</h2>
-      <p class="lede" data-fr="Du premier cours à la décision d'investir. Choisissez un niveau pour voir sa page.">From the first lesson to the investment decision. Pick a level to see its page.</p>
-      <div class="tabs links">
-        <a href="levels.html#lv-1"><b>1</b><span data-fr="Apprendre">Learn</span><small data-fr="105 leçons">105 lessons</small></a>
-        <a href="levels.html#lv-2"><b>2</b><span data-fr="S'exercer">Practise</span><small data-fr="16 exemples résolus">16 worked examples</small></a>
-        <a href="levels.html#lv-3"><b>3</b><span data-fr="Construire">Build</span><small data-fr="votre propre modèle">your own model</small></a>
-        <a href="levels.html#lv-4"><b>4</b><span data-fr="Décider">Decide</span><small data-fr="chaque action chiffrée">each action in money</small></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="interval" id="film">
-    <div class="depth"><b data-fr="FILMS">FILMS</b></div>
-    <div class="body">
-      <h2 data-fr="Voir RWS au travail">See RWS at work</h2>
-      <p class="lede" data-fr="Un champ réel calé sur neuf ans de production, en quatre minutes.">A real field matched to nine years of production, in four minutes.</p>
-      <div class="film solo">
-        <video controls preload="none" playsinline poster="img/poster_norne.jpg" width="1920" height="1080" aria-label="Automatic history matching on Norne" data-fr-aria="Calage automatique de l'historique sur Norne"><source src="video/norne-history-match.mp4" type="video/mp4"></video>
-      </div>
-      <p style="margin-top:14px"><a class="go" href="films.html" data-fr="Tous les films &#8594;">All films &#8594;</a></p>
-    </div>
-  </section>
-
-  <section class="interval" id="more">
-    <div class="depth"><b data-fr="SUITE">MORE</b></div>
-    <div class="body">
-      <h2 data-fr="Aller plus loin">Go further</h2>
-      <div class="cards links">
-        <div><h3><a href="decide.html" data-fr="Ce qu'un manager lit">What a manager reads</a></h3><p data-fr="Trois opérations sur Norne, chiffrées avec deux modèles. Laquelle faire, laquelle mesurer d'abord.">Three operations on Norne, valued with two models. Which to do, which to measure first.</p><a class="go" href="decide.html" data-fr="Décider &#8594;">Decide &#8594;</a></div>
-        <div><h3><a href="proof.html" data-fr="Ce qui est vérifié">What is verified</a></h3><p data-fr="552 tests automatiques, des cas publiés, OPM Flow. Et ce qui n'est pas encore vérifié.">552 automatic tests, published cases, OPM Flow. And what is not verified yet.</p><a class="go" href="proof.html" data-fr="Les preuves &#8594;">Proof &#8594;</a></div>
-        <div><h3><a href="institutes.html" data-fr="Pour une classe">For a class</a></h3><p data-fr="Ce qu'une classe reçoit, un semestre type, les licences groupées, la phase pilote.">What a class receives, a suggested semester, group licences, the pilot phase.</p><a class="go" href="institutes.html" data-fr="Instituts &#8594;">Institutes &#8594;</a></div>
-      </div>
-      <div class="band">
-        <p data-fr="Étudiants : gratuit. Professionnels : 50 USD par clé. Instituts et entreprises : sur demande.">Students: free. Professionals: 50 USD per key. Institutes and companies: on request.</p>
-        <a class="btn fill" href="key.html" data-fr="Obtenir une clé">Get a key</a>
-      </div>
-      <div class="band">
-        <p data-fr="Nous recrutons : un associé, pas un salarié, pour faire avancer le programme.">We are hiring: a partner, not an employee, to develop the program further.</p>
-        <a class="btn line" href="partner.html" data-fr="Lire l'appel →">Read the call &#8594;</a>
-      </div>
-    </div>
-  </section>
-
 </main>
 
-<footer>
-  <div class="foot">
-    <nav aria-label="Footer">
-      <a href="index.html" data-fr="Accueil">Home</a>
-      <a href="different.html" data-fr="Pourquoi RWS">Why RWS</a>
-      <a href="levels.html" data-fr="Quatre niveaux">Four levels</a>
-      <a href="decide.html" data-fr="Décider">Decide</a>
-      <a href="proof.html" data-fr="Les preuves">Proof</a>
-      <a href="films.html" data-fr="Films">Films</a>
-      <a href="institutes.html" data-fr="Instituts">Institutes</a>
-      <a href="partner.html" data-fr="Associé">Partner</a>
-      <a href="vision.html" data-fr="Vision">Vision</a>
-      <a href="about.html" data-fr="À propos">About</a>
-      <a href="key.html" data-fr="Obtenir une clé">Get a key</a>
-    </nav>
-    <p class="reach"><a href="mailto:aggoun.r.c@gmail.com">aggoun.r.c@gmail.com</a><a href="https://wa.me/33766884953">WhatsApp +33 7 66 88 49 53</a><span>Dr. Redha Chawki AGGOUN</span></p>
-  </div>
-  <p data-fr="RWS ReservoirWellSurface 4.27. Logiciel libre sous licence GNU GPL version 3 ou ultérieure. RWS n'ouvre aucune connexion réseau : vos projets restent sur votre ordinateur.">RWS ReservoirWellSurface 4.27. Free software under the GNU GPL, version 3 or later. RWS opens no network connection: your projects stay on your computer.</p>
-  <p data-fr="Données de Norne : cas de référence public (projet Open Porous Media, © 2015 Statoil, Open Database License).">Norne data: public benchmark case (Open Porous Media project, © 2015 Statoil, Open Database License).</p>
-</footer>
-
 <dialog class="lb" id="lb"><button type="button" data-fr="Fermer">Close</button><img alt=""><p></p></dialog>
-<script src="js/ar.js?v=20"></script>
+<script src="js/ar.js?v=21"></script>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
 <script src="js/vendor/SplitText.min.js"></script>
-<script src="js/site.js?v=20"></script>
+<script src="js/site.js?v=21"></script>
 </body>
 </html>

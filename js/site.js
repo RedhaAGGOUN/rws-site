@@ -1,5 +1,5 @@
 (function () {
-  var moved = { "#levels": "levels.html", "#norne": "decide.html", "#proof": "proof.html", "#key": "key.html", "#partner": "partner.html", "#different": "different.html" };
+  var moved = { "#levels": "what.html#levels", "#norne": "decide.html", "#proof": "proof.html", "#key": "how.html#key", "#partner": "partner.html", "#different": "why.html" };
   if (/(\/|index\.html)$/.test(location.pathname) && moved[location.hash]) { location.replace(moved[location.hash]); return; }
   var root = document.documentElement;
   root.classList.add("js");
@@ -93,6 +93,7 @@
   if (lp && window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) { lp.removeAttribute("autoplay"); lp.pause(); lp.controls = true; }
 
   /* the film plays silently by itself (browsers require it); this button turns its music on and off */
+  if (lp && lp.closest(".intro-stage")) lp.addEventListener("click", function () { if (lp.paused) lp.play(); else lp.pause(); });
   var sb = document.querySelector(".snd");
   if (sb && lp) sb.addEventListener("click", function () {
     lp.muted = !lp.muted; sb.setAttribute("aria-pressed", String(!lp.muted));
@@ -117,7 +118,7 @@
      With GSAP (js/vendor): an opening sequence, sections that rise in as they are reached, numbers that count up,
      a picture that drifts with the scroll and a reading bar. Only for visitors who have not asked for reduced motion.
      Without GSAP the simpler version further down runs instead. */
-  var SEL = "h2, h1.page, .lede, .stand, .tabs, .cards > div, .stats > div, .price > div, .weeks li, .decisions li, .bars .row, .band, .pilot, .check, .section-fig, .film, ol.steps li, .why-list li, .names-row, .marq, .values li, .who";
+  var SEL = "h2, h1.page, .lede, .stand, .tabs, .cards > div, .stats > div, .price > div, .weeks li, .decisions li, .bars .row, .band, .pilot, .check, .section-fig, .film, ol.steps li, .why-list li, .names-row, .marq, .values:not(.howto) li, .howto > li, .who";
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
     if (window.SplitText) gsap.registerPlugin(SplitText);
