@@ -31,7 +31,14 @@
     });
     document.querySelectorAll("[data-fr-href]").forEach(function (el) {
       if (!el.dataset.enHref) el.dataset.enHref = el.getAttribute("href");
-      el.setAttribute("href", lang === "fr" ? el.getAttribute("data-fr-href") : el.dataset.enHref);
+      el.setAttribute("href", lang === "fr" ? el.getAttribute("data-fr-href") : (lang === "ar" && el.getAttribute("data-ar-href")) || el.dataset.enHref);
+    });
+    /* the sketch is mirrored for a right-to-left reader: its labels move to the other side */
+    document.querySelectorAll(".section-fig text").forEach(function (t) {
+      if (!t.dataset.x) { t.dataset.x = t.getAttribute("x"); t.dataset.a = t.getAttribute("text-anchor") || "start"; }
+      var ar = lang === "ar";
+      t.setAttribute("x", ar ? 1100 - (+t.dataset.x) : t.dataset.x);
+      t.setAttribute("text-anchor", ar ? (t.dataset.a === "end" ? "start" : "end") : t.dataset.a);
     });
     shots.forEach(function (im) { im.src = "img/" + im.dataset.shot + "_" + (lang === "fr" ? "fr" : "en") + ".jpg"; });
     if (curEl) curEl.textContent = codes[lang];
@@ -62,9 +69,7 @@
       });
       if (count) count.textContent = (cur + 1) + " / " + tabs.length;
       if (window.gsap && root.classList.contains("gsap") && !(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)) {
-        var pn = panels[cur];
-        gsap.fromTo(pn.querySelector("figure"), { autoAlpha: 0, x: root.dir === "rtl" ? -28 : 28 }, { autoAlpha: 1, x: 0, duration: 0.55, ease: "power3.out", overwrite: true });
-        gsap.fromTo(pn.querySelectorAll("li"), { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.4, stagger: 0.06, ease: "power2.out", overwrite: true });
+        gsap.fromTo(panels[cur], { autoAlpha: 0, filter: "blur(3px)", x: root.dir === "rtl" ? -10 : 10 }, { autoAlpha: 1, filter: "blur(0px)", x: 0, duration: 0.26, ease: "power4.out", overwrite: true, clearProps: "filter,transform" });
       }
       if (window.ScrollTrigger) ScrollTrigger.refresh();
       if (focus) tabs[cur].focus();
@@ -106,51 +111,76 @@
     gsap.registerPlugin(ScrollTrigger);
     if (window.SplitText) gsap.registerPlugin(SplitText);
     root.classList.add("gsap");
+    /* Easing after Emil Kowalski's standards: things that enter use a strong ease-out (power4.out is the
+       curve cubic-bezier(.23, 1, .32, 1)); things that move on screen use a strong ease-in-out (power3.inOut). */
+    var OUT = "power4.out", INOUT = "power3.inOut";
+    var items = gsap.utils.toArray(SEL).filter(function (el) { return !el.closest(".hero"); });
+    function countUp(b) {
+      if (!b || !/^\d+$/.test(b.textContent)) return;
+      var n = +b.textContent, o = { v: 0 };
+      gsap.to(o, { v: n, duration: 1.2, ease: "power2.out", snap: { v: 1 }, onUpdate: function () { b.textContent = o.v; }, onComplete: function () { b.textContent = n; } });
+    }
+    function kind(el) {
+      if (el.matches("h2, h1.page")) return "lead";
+      if (el.matches(".section-fig")) return "wipe";
+      if (el.matches(".band, .pilot, .check, .stand, .tabs")) return "still";
+      return "support";
+    }
     var mm = gsap.matchMedia();
     mm.add("(prefers-reduced-motion: no-preference)", function () {
-      function countUp(b) {
-        if (!b || !/^\d+$/.test(b.textContent)) return;
-        var n = +b.textContent, o = { v: 0 };
-        gsap.to(o, { v: n, duration: 1.2, ease: "power2.out", snap: { v: 1 }, onUpdate: function () { b.textContent = o.v; }, onComplete: function () { b.textContent = n; } });
-      }
-      /* opening sequence of the first screen */
+      var rtl = root.dir === "rtl";
+      var shut = rtl ? "inset(0% 0% 0% 100%)" : "inset(0% 100% 0% 0%)", openClip = "inset(0% 0% 0% 0%)";
+      /* opening sequence of the first screen: seen once per visit, so it may take its time (steps of about 0.12 s) */
       var hero = document.querySelector(".hero");
       if (hero) {
-        var tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-        var h1 = hero.querySelector("h1"), split = null;
-        tl.from(hero.querySelector(".eyebrow"), { autoAlpha: 0, y: 12, duration: 0.5 });
+        var tl = gsap.timeline({ defaults: { ease: OUT } });
+        var h1 = hero.querySelector("h1");
+        tl.from(hero.querySelector(".eyebrow"), { autoAlpha: 0, y: 10, duration: 0.5 });
         if (window.SplitText && root.lang !== "ar") {
-          split = SplitText.create(h1, { type: "words", mask: "words" });
-          tl.from(split.words, { yPercent: 110, duration: 0.8, stagger: 0.07 }, "<0.1");
+          var split = SplitText.create(h1, { type: "words", mask: "words" });
+          tl.from(split.words, { yPercent: 110, duration: 0.9, stagger: { each: 0.09, ease: "power1.out" } }, "<0.12");
           tl.add(function () { split.revert(); });
         } else {
-          tl.from(h1, { autoAlpha: 0, y: 24, duration: 0.8 }, "<0.1");
+          tl.from(h1, { autoAlpha: 0, y: 28, duration: 0.9 }, "<0.12");
         }
-        tl.from(hero.querySelector(".lede"), { autoAlpha: 0, y: 16, duration: 0.6 }, "-=0.45")
-          .from(hero.querySelectorAll(".cta .btn"), { autoAlpha: 0, y: 12, duration: 0.5, stagger: 0.08 }, "-=0.35");
+        tl.from(hero.querySelector(".lede"), { autoAlpha: 0, y: 14, duration: 0.6 }, "-=0.5")
+          .from(hero.querySelectorAll(".cta .btn"), { autoAlpha: 0, y: 10, duration: 0.5, stagger: 0.1 }, "-=0.4");
         var facts = hero.querySelectorAll(".facts li");
         if (facts.length) {
-          tl.from(facts, { autoAlpha: 0, y: 12, duration: 0.5, stagger: 0.07 }, "-=0.3")
+          tl.from(facts, { autoAlpha: 0, duration: 0.5, stagger: { each: 0.08, ease: "power1.out" } }, "-=0.3")
             .add(function () { facts.forEach(function (li) { countUp(li.querySelector("b")); }); }, "<");
         }
-        tl.from(hero.querySelector("figure"), { autoAlpha: 0, scale: 0.96, duration: 0.9 }, 0.2);
-        /* the picture drifts as the first screen scrolls away */
+        /* the picture is uncovered from the top, like a log being unrolled */
+        tl.fromTo(hero.querySelector("figure"), { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: openClip, duration: 1.1, ease: INOUT, clearProps: "clipPath" }, 0.15);
         var pics = hero.querySelectorAll("figure .pan img");
         if (pics.length) {
           gsap.fromTo(pics, { scale: 1.04, yPercent: 0 }, { scale: 1.14, yPercent: -5, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 1 } });
         }
       }
-      /* sections rise in, in small groups, the first time they are reached */
-      var items = gsap.utils.toArray(SEL).filter(function (el) { return !el.closest(".hero"); });
-      gsap.set(items, { autoAlpha: 0, y: 24 });
+      /* sections arrive the first time they are reached. Not everything moves the same way:
+         the heading travels furthest, supporting pieces less, boxed notices fade in place, the sketch is wiped open
+         from the side the language reads from. Groups overlap with delays that shrink, never a metronome. */
+      items.forEach(function (el) {
+        var k = kind(el);
+        if (k === "lead") gsap.set(el, { autoAlpha: 0, y: 36 });
+        else if (k === "wipe") gsap.set(el, { clipPath: shut });
+        else if (k === "still") gsap.set(el, { autoAlpha: 0, scale: 0.985 });
+        else gsap.set(el, { autoAlpha: 0, y: 18 });
+      });
       ScrollTrigger.batch(items, {
-        start: "top 90%", once: true, interval: 0.12,
+        start: "top 88%", once: true, interval: 0.12,
         onEnter: function (batch) {
-          gsap.to(batch, { autoAlpha: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.08, overwrite: true });
+          var support = [];
           batch.forEach(function (el) {
+            var k = kind(el);
+            if (k === "lead") gsap.to(el, { autoAlpha: 1, y: 0, duration: 0.8, ease: OUT, overwrite: true });
+            else if (k === "wipe") gsap.to(el, { clipPath: openClip, duration: 1.1, ease: INOUT, overwrite: true, clearProps: "clipPath" });
+            else if (k === "still") gsap.to(el, { autoAlpha: 1, scale: 1, duration: 0.6, ease: OUT, overwrite: true, delay: 0.08 });
+            else support.push(el);
             if (el.matches(".stats > div")) countUp(el.querySelector("b"));
             if (el.matches(".bars .row")) el.classList.add("grow");
           });
+          if (support.length) gsap.to(support, { autoAlpha: 1, y: 0, duration: 0.6, ease: OUT, overwrite: true, delay: 0.06, stagger: { each: 0.07, ease: "power2.out" } });
         }
       });
       /* reading bar under the header */
@@ -159,6 +189,11 @@
       gsap.to(bar, { scaleX: 1, ease: "none", scrollTrigger: { start: 0, end: "max", scrub: 0.3 } });
       if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
       return function () { bar.remove(); };
+    });
+    /* visitors who asked for less motion keep a short fade and no movement */
+    mm.add("(prefers-reduced-motion: reduce)", function () {
+      gsap.set(items, { autoAlpha: 0 });
+      ScrollTrigger.batch(items, { start: "top 95%", once: true, onEnter: function (batch) { gsap.to(batch, { autoAlpha: 1, duration: 0.2, ease: "none", overwrite: true }); } });
     });
   } else {
     var calm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;

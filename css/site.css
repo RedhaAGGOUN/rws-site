@@ -430,3 +430,36 @@ a.go { display: inline-flex; align-items: center; min-height: 44px; font: 500 0.
 .row.grow .bar2 span { animation: grow .9s cubic-bezier(.2, .7, .2, 1) both; }
 .row.grow .bar2 span.b { animation-delay: .15s; }
 @media (prefers-reduced-motion: reduce) { .row.grow .bar2 span { animation: none; } }
+
+/* ---------- refinements after Emil Kowalski's standards ---------- */
+:root { --ease-out: cubic-bezier(.23, 1, .32, 1); --ease-in-out: cubic-bezier(.77, 0, .175, 1); }
+h1, h2 { letter-spacing: -0.01em; }
+.facts b, .stats b, .bar2 span::after, #tour-count, .tabs b { font-variant-numeric: tabular-nums; }
+/* pressing something answers at once */
+.btn { transition: transform 160ms var(--ease-out), background .2s ease, color .2s ease; }
+.btn:active, .tour-nav button:active, details.lang summary:active { transform: scale(.97); }
+.tour-nav button, details.lang summary { transition: transform 160ms var(--ease-out), border-color .2s ease, color .2s ease; }
+.tabs button:active b, .tabs.links a:active b { transform: scale(.94); }
+.tabs button b { transition: color .2s ease, transform 160ms var(--ease-out); }
+.zoom img { transition: transform 240ms var(--ease-out); }
+.zoom:active img { transform: scale(.99); }
+/* hover movement only where there is a real pointer: a finger tap must not leave things lifted */
+@media (hover: none) { .btn:hover, .tabs.links a:hover b { transform: none; } .cards.links div:hover, .tabs.links a:hover { background: transparent; } .btn.line:hover { background: transparent; color: var(--green); } }
+/* the language menu grows from its button, quickly */
+details.lang[open] > div { animation: pop 180ms var(--ease-out); transform-origin: top right; }
+[dir="rtl"] details.lang[open] > div { transform-origin: top left; }
+@keyframes pop { from { opacity: 0; transform: scale(.96) translateY(-4px); } }
+/* the enlarged picture */
+dialog.lb[open] { animation: lb 260ms var(--ease-out); }
+dialog.lb[open]::backdrop { animation: fade 260ms ease; }
+@keyframes lb { from { opacity: 0; transform: scale(.96); } }
+@keyframes fade { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { details.lang[open] > div, dialog.lb[open] { animation: fade .2s ease; } .btn:active, .tour-nav button:active { transform: none; } }
+
+/* ---------- right to left, second pass ---------- */
+[dir="rtl"] .tour-nav button { transform: scaleX(-1); }
+[dir="rtl"] .tour-nav button:active { transform: scaleX(-1) scale(.97); }
+#tour-count { direction: ltr; unicode-bidi: isolate; }
+:root[lang="ar"] .price b, :root[lang="ar"] .stats b, :root[lang="ar"] .facts b, :root[lang="ar"] .level .num, :root[lang="ar"] .tabs b, :root[lang="ar"] .decisions li::before { font-style: normal; }
+.section-fig .mir { transform-box: view-box; transform-origin: center; }
+[dir="rtl"] .section-fig .mir { transform: scaleX(-1); }
