@@ -322,5 +322,10 @@ window.RWS_AR = {
 "12/4, rue El Badr, Bou Saâda, Algeria": "12/4، شارع البدر، بوسعادة، الجزائر",
 "Near the Lycée Ziri Ben Menad, shown by the marker on the map.": "قرب ثانوية زيري بن مناد، المشار إليها بالعلامة على الخريطة.",
 "Open in Google Maps": "افتح في خرائط غوغل",
-"Map of Bou Saâda around the Lycée Ziri Ben Menad": "خريطة بوسعادة حول ثانوية زيري بن مناد"
+"Map of Bou Saâda around the Lycée Ziri Ben Menad": "خريطة بوسعادة حول ثانوية زيري بن مناد",
+"Who we are →": "من نحن ←",
+"Our vision and values →": "رؤيتنا وقيمنا ←",
+"The startup behind RWS, and where to find us.": "المؤسسة الناشئة وراء RWS، وأين تجدوننا.",
+"Map of Bou Saâda": "خريطة بوسعادة",
+"WHO": "من نحن"
 };
