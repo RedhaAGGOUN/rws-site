@@ -372,5 +372,11 @@ window.RWS_AR = {
 "Team": "الفريق",
 "See it work, get your key, and bring it to a class.": "شاهده يعمل، احصل على مفتاحك، وأدخله إلى القسم.",
 "GET": "الحصول",
-"On this page": "في هذه الصفحة"
+"On this page": "في هذه الصفحة",
+"Download RWS for Windows": "تحميل RWS لويندوز",
+"Version 4.27.0 · 295 MB · Windows 10 or 11, 64 bit. You need a key to use it.": "الإصدار 4.27.0 · 295 ميغابايت · ويندوز 10 أو 11، 64 بت. تحتاج إلى مفتاح لاستعماله.",
+"Windows may warn that the publisher is unknown, because the installer is not yet signed: choose \"More info\", then \"Run anyway\".": "قد يحذّر ويندوز من ناشر غير معروف لأن برنامج التثبيت غير موقَّع بعد: اختر «مزيد من المعلومات» ثم «تشغيل على أي حال».",
+"Download": "تحميل",
+"DOWNLOAD": "تحميل",
+"Windows may warn that the publisher is unknown, because the installer is not yet signed: choose &quot;More info&quot;, then &quot;Run anyway&quot;.": "قد يحذّر ويندوز من ناشر غير معروف لأن برنامج التثبيت غير موقَّع بعد: اختر «مزيد من المعلومات» ثم «تشغيل على أي حال»."
 };
