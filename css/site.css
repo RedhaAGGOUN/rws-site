@@ -463,3 +463,7 @@ dialog.lb[open]::backdrop { animation: fade 260ms ease; }
 :root[lang="ar"] .price b, :root[lang="ar"] .stats b, :root[lang="ar"] .facts b, :root[lang="ar"] .level .num, :root[lang="ar"] .tabs b, :root[lang="ar"] .decisions li::before { font-style: normal; }
 .section-fig .mir { transform-box: view-box; transform-origin: center; }
 [dir="rtl"] .section-fig .mir { transform: scaleX(-1); }
+
+/* sections: different, partner */
+#different .cards h3, #partner .cards h3 { color: var(--green); }
+#partner .eyebrow { margin-bottom: 8px; }
