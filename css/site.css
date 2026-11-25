@@ -267,3 +267,25 @@ dialog.lb button { position: fixed; top: 14px; right: 16px; font: 500 15px var(-
   .btn:hover { transform: none; }
 }
 .hero h1 { font-size: clamp(42px, 6.2vw, 80px); }
+
+/* several pages */
+h1.page { font-size: clamp(38px, 5.6vw, 64px); margin-bottom: 14px; }
+.tabs.links a { all: unset; box-sizing: border-box; cursor: pointer; padding: 16px 18px 14px; border-right: 1px solid var(--line); border-bottom: 4px solid transparent; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 12px; align-items: center; min-width: 0; }
+.tabs.links a:last-child { border-right: 0; }
+.tabs.links a b { grid-row: span 2; font: 700 italic 58px/.85 var(--display); color: var(--green); }
+.tabs.links a:nth-child(even) b { color: var(--red); }
+.tabs.links a span { font: 700 italic 26px/1 var(--display); text-transform: uppercase; }
+.tabs.links a small { font: 400 12px var(--mono); color: var(--soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tabs.links a:hover { background: var(--panel); border-bottom-color: var(--green); }
+.tabs.links a:focus-visible { outline: 3px solid var(--red); outline-offset: -3px; }
+html:not(.js) .tabs.links { display: grid; }
+.cards.links h3 a { color: var(--ink); text-decoration: none; }
+.cards.links h3 a:hover { color: var(--green); }
+.cards.links .go { display: inline-block; margin-top: 12px; font: 500 13px var(--mono); letter-spacing: .08em; text-transform: uppercase; text-decoration: none; }
+.band.next { margin-top: 40px; }
+@media (max-width: 860px) {
+  .tabs.links a { padding: 10px 6px 8px; grid-template-columns: minmax(0, 1fr); text-align: center; justify-items: center; }
+  .tabs.links a b { grid-row: auto; font-size: 40px; }
+  .tabs.links a span { font-size: 13px; letter-spacing: 0; }
+  .tabs.links a small { display: none; }
+}

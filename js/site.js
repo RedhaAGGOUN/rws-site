@@ -1,4 +1,6 @@
 (function () {
+  var moved = { "#levels": "levels.html", "#norne": "decide.html", "#proof": "proof.html", "#key": "key.html" };
+  if (/(\/|index\.html)$/.test(location.pathname) && moved[location.hash]) { location.replace(moved[location.hash]); return; }
   var root = document.documentElement;
   root.classList.add("js");
   var en = {}, shots = document.querySelectorAll("img[data-shot]");
@@ -60,7 +62,9 @@
     });
     document.getElementById("tour-prev").addEventListener("click", function () { show(cur - 1); });
     document.getElementById("tour-next").addEventListener("click", function () { show(cur + 1); });
-    show(0);
+    function fromHash() { var m = /^#lv-(\d)$/.exec(location.hash); show(m ? +m[1] - 1 : cur); }
+    window.addEventListener("hashchange", fromHash);
+    show(0); fromHash();
   }
 
   /* enlarge a picture */
