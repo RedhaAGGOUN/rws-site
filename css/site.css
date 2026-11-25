@@ -578,3 +578,5 @@ html:not(.gsap) .why-list .n { display: block; }
 .journey { display: block; width: 100%; height: auto; direction: ltr; }
 .journey .j-lab { font: 700 1.5rem var(--display); letter-spacing: .14em; fill: #101612; paint-order: stroke; stroke: #fff; stroke-width: 5px; }
 :root[lang="ar"] .journey .j-lab { font-size: 1.625rem; }
+
+.journey-fig video.loop { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #fff; }

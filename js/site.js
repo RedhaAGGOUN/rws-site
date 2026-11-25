@@ -88,6 +88,10 @@
     show(0); fromHash();
   }
 
+  /* the looping film of the first screen: still, with controls, for visitors who asked for less motion */
+  var lp = document.querySelector("video.loop");
+  if (lp && window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) { lp.removeAttribute("autoplay"); lp.pause(); lp.controls = true; }
+
   /* enlarge a picture */
   var lb = document.getElementById("lb");
   if (lb && lb.showModal) {
