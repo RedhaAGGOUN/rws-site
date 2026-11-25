@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,600;1,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=23">
+<link rel="stylesheet" href="css/site.css?v=24">
 </head>
 <body>
 
@@ -24,10 +24,10 @@
     <a class="home" href="index.html" aria-label="RWS, home" data-fr-aria="RWS, accueil"><img class="logo-light" src="img/logo.png" width="396" height="132" alt="RWS ReservoirWellSurface"><img class="logo-dark" src="img/logo_dark.png" width="396" height="132" alt="RWS ReservoirWellSurface"></a>
     <nav aria-label="Pages">
       <a href="index.html" data-fr="Intro">Intro</a>
-      <a href="what.html" data-fr="Quoi">What</a>
-      <a href="why.html" aria-current="page" data-fr="Pourquoi">Why</a>
-      <a href="how.html" data-fr="Comment">How</a>
-      <a href="who.html" data-fr="Qui">Who</a>
+      <div class="mi"><a href="what.html" data-fr="Quoi">What</a><div class="sub"><a href="what.html#what" data-fr="Le produit">The product</a><a href="what.html#levels" data-fr="Quatre niveaux">Four levels</a><a href="what.html#decide" data-fr="Une décision chiffrée">A worked decision</a><a href="what.html#sheet" data-fr="Fiche technique">Technical sheet</a></div></div>
+      <div class="mi"><a href="why.html" aria-current="page" data-fr="Pourquoi">Why</a><div class="sub"><a href="#why" data-fr="Positionnement">Positioning</a><a href="#six" data-fr="Six choix">Six choices</a><a href="#proof" data-fr="Les preuves">Proof</a></div></div>
+      <div class="mi"><a href="how.html" data-fr="Comment">How</a><div class="sub"><a href="how.html#films" data-fr="Films">Films</a><a href="how.html#key" data-fr="Comment l'obtenir">How to get it</a><a href="how.html#activate" data-fr="Activation">Activation</a><a href="how.html#institutes" data-fr="Pour les instituts">For institutes</a><a href="how.html#semester" data-fr="Un semestre">A semester</a><a href="how.html#pilot" data-fr="Pilote">Pilot</a></div></div>
+      <div class="mi"><a href="who.html" data-fr="Qui">Who</a><div class="sub"><a href="who.html#who" data-fr="Vision et mission">Vision and mission</a><a href="who.html#values" data-fr="Valeurs">Values</a><a href="who.html#team" data-fr="Équipe">Team</a><a href="who.html#partner" data-fr="Associé">Partner</a></div></div>
     </nav>
     <a class="btn fill keybtn" href="how.html#key" data-fr="Obtenir une clé">Get a key</a>
     <details class="lang">
@@ -42,6 +42,8 @@
 </header>
 
 <main class="log">
+
+  <nav class="subnav" aria-label="On this page" data-fr-aria="Sur cette page"><a href="#why" data-fr="Positionnement">Positioning</a><a href="#six" data-fr="Six choix">Six choices</a><a href="#proof" data-fr="Les preuves">Proof</a></nav>
 
   <section class="interval" id="why">
     <div class="depth"><b data-fr="POURQUOI">WHY</b></div>
@@ -66,7 +68,7 @@
         <div class="names-row"><span data-fr="Instituts">Institutes</span><ul class="logos"><li class="logo"><img src="img/logos/iap.png" width="160" height="160" alt="IAP, Algerian Petroleum Institute" loading="lazy"></li><li class="logo"><img src="img/logos/ifp.png" width="221" height="160" alt="IFP" loading="lazy"></li></ul></div>
       </div>
       <p class="small" style="margin-top:14px" data-fr="RWS est indépendant. Il n'a aucun lien avec les sociétés et instituts montrés sur cette page ; leurs noms et logos décrivent le secteur, et leurs marques appartiennent à leurs propriétaires.">RWS is independent. It has no affiliation with the companies and institutes shown on this page; their names and logos describe the sector, and their trademarks belong to their owners.</p>
-      <h2 style="margin-top:56px" data-fr="Six choix qui distinguent RWS">Six choices that set RWS apart</h2>
+      <h2 id="six" style="margin-top:56px" data-fr="Six choix qui distinguent RWS">Six choices that set RWS apart</h2>
       <div class="why">
         <div class="why-side" aria-hidden="true"><div class="why-num"><b id="why-num">1</b><span>/ 6</span></div><i class="why-line"><i></i></i></div>
         <ol class="why-list">
@@ -131,10 +133,10 @@
 </footer>
 
 <dialog class="lb" id="lb"><button type="button" data-fr="Fermer">Close</button><img alt=""><p></p></dialog>
-<script src="js/ar.js?v=23"></script>
+<script src="js/ar.js?v=24"></script>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
 <script src="js/vendor/SplitText.min.js"></script>
-<script src="js/site.js?v=23"></script>
+<script src="js/site.js?v=24"></script>
 </body>
 </html>

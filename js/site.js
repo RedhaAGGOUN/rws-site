@@ -100,6 +100,16 @@
     if (lp.paused) lp.play();
   });
 
+  /* the list of sub-sections at the top of a page shows where the reader is */
+  var chips = [].slice.call(document.querySelectorAll(".subnav a"));
+  if (chips.length && "IntersectionObserver" in window) {
+    var marks = chips.map(function (c) { return document.getElementById(c.getAttribute("href").slice(1)); });
+    var spy = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) chips.forEach(function (c, k) { c.classList.toggle("on", marks[k] === e.target); }); });
+    }, { rootMargin: "-25% 0px -65% 0px" });
+    marks.forEach(function (m) { if (m) spy.observe(m); });
+  }
+
   /* enlarge a picture */
   var lb = document.getElementById("lb");
   if (lb && lb.showModal) {

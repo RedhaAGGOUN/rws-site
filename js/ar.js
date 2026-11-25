@@ -357,5 +357,20 @@ window.RWS_AR = {
 "What is verified, and what is not yet.": "ما تمّ التحقق منه، وما لم يتم بعد.",
 "A worked decision, and RWS on film.": "قرار مقيَّم بالمال، وRWS بالأفلام.",
 "See it": "شاهده",
-"What RWS is": "ما هو RWS"
+"What RWS is": "ما هو RWS",
+"The product": "المنتج",
+"A worked decision": "قرار مقيَّم بالمال",
+"Positioning": "التموضع",
+"Six choices": "ستة اختيارات",
+"How to get it": "كيف تحصل عليه",
+"Activation": "التفعيل",
+"For institutes": "للمعاهد",
+"A semester": "سداسي",
+"Pilot": "التجربة",
+"Vision and mission": "الرؤية والرسالة",
+"Values": "القيم",
+"Team": "الفريق",
+"See it work, get your key, and bring it to a class.": "شاهده يعمل، احصل على مفتاحك، وأدخله إلى القسم.",
+"GET": "الحصول",
+"On this page": "في هذه الصفحة"
 };

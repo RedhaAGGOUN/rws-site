@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,600;1,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=23">
+<link rel="stylesheet" href="css/site.css?v=24">
 </head>
 <body>
 
@@ -24,10 +24,10 @@
     <a class="home" href="index.html" aria-label="RWS, home" data-fr-aria="RWS, accueil"><img class="logo-light" src="img/logo.png" width="396" height="132" alt="RWS ReservoirWellSurface"><img class="logo-dark" src="img/logo_dark.png" width="396" height="132" alt="RWS ReservoirWellSurface"></a>
     <nav aria-label="Pages">
       <a href="index.html" data-fr="Intro">Intro</a>
-      <a href="what.html" data-fr="Quoi">What</a>
-      <a href="why.html" data-fr="Pourquoi">Why</a>
-      <a href="how.html" data-fr="Comment">How</a>
-      <a href="who.html" aria-current="page" data-fr="Qui">Who</a>
+      <div class="mi"><a href="what.html" data-fr="Quoi">What</a><div class="sub"><a href="what.html#what" data-fr="Le produit">The product</a><a href="what.html#levels" data-fr="Quatre niveaux">Four levels</a><a href="what.html#decide" data-fr="Une décision chiffrée">A worked decision</a><a href="what.html#sheet" data-fr="Fiche technique">Technical sheet</a></div></div>
+      <div class="mi"><a href="why.html" data-fr="Pourquoi">Why</a><div class="sub"><a href="why.html#why" data-fr="Positionnement">Positioning</a><a href="why.html#six" data-fr="Six choix">Six choices</a><a href="why.html#proof" data-fr="Les preuves">Proof</a></div></div>
+      <div class="mi"><a href="how.html" data-fr="Comment">How</a><div class="sub"><a href="how.html#films" data-fr="Films">Films</a><a href="how.html#key" data-fr="Comment l'obtenir">How to get it</a><a href="how.html#activate" data-fr="Activation">Activation</a><a href="how.html#institutes" data-fr="Pour les instituts">For institutes</a><a href="how.html#semester" data-fr="Un semestre">A semester</a><a href="how.html#pilot" data-fr="Pilote">Pilot</a></div></div>
+      <div class="mi"><a href="who.html" aria-current="page" data-fr="Qui">Who</a><div class="sub"><a href="#who" data-fr="Vision et mission">Vision and mission</a><a href="#values" data-fr="Valeurs">Values</a><a href="#team" data-fr="Équipe">Team</a><a href="#partner" data-fr="Associé">Partner</a></div></div>
     </nav>
     <a class="btn fill keybtn" href="how.html#key" data-fr="Obtenir une clé">Get a key</a>
     <details class="lang">
@@ -43,6 +43,8 @@
 
 <main class="log">
 
+  <nav class="subnav" aria-label="On this page" data-fr-aria="Sur cette page"><a href="#who" data-fr="Vision et mission">Vision and mission</a><a href="#values" data-fr="Valeurs">Values</a><a href="#team" data-fr="Équipe">Team</a><a href="#partner" data-fr="Associé">Partner</a></nav>
+
   <section class="interval" id="who">
     <div class="depth"><b data-fr="QUI">WHO</b></div>
     <div class="body">
@@ -56,7 +58,7 @@
         <p class="eyebrow" data-fr="Mission">Mission</p>
         <p class="say small-say" data-fr="Nous rendons les experts compréhensibles : pour les étudiants qui les rejoindront, et pour les managers qui transforment leur travail en profit.">We make the experts understood: by the students who will join them, and by the managers who turn their work into profit.</p>
       </div>
-      <h2 style="margin-top:60px" data-fr="Nos valeurs">Our values</h2>
+      <h2 id="values" style="margin-top:60px" data-fr="Nos valeurs">Our values</h2>
       <p class="lede" data-fr="Pour ceux qui travaillent sur RWS, et pour ceux qui travaillent avec lui.">For the people who work on RWS, and for those who work with it.</p>
       <ol class="values">
         <li>
@@ -115,7 +117,7 @@
           </div>
         </li>
       </ol>
-      <h2 style="margin-top:60px" data-fr="L'équipe">The team</h2>
+      <h2 id="team" style="margin-top:60px" data-fr="L'équipe">The team</h2>
       <div class="who">
         <div>
           <p class="lede" data-fr="RWS est une startup dirigée par le Dr Redha Chawki AGGOUN, ingénieur pétrolier et producteur du programme, fort de plus de vingt ans d'expérience internationale.">RWS is a startup led by Dr. Redha Chawki AGGOUN, petroleum engineer and producer of the program, with more than twenty years of international experience.</p>
@@ -180,10 +182,10 @@
 </footer>
 
 <dialog class="lb" id="lb"><button type="button" data-fr="Fermer">Close</button><img alt=""><p></p></dialog>
-<script src="js/ar.js?v=23"></script>
+<script src="js/ar.js?v=24"></script>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
 <script src="js/vendor/SplitText.min.js"></script>
-<script src="js/site.js?v=23"></script>
+<script src="js/site.js?v=24"></script>
 </body>
 </html>

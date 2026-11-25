@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,600;1,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=23">
+<link rel="stylesheet" href="css/site.css?v=24">
 </head>
 <body>
 
@@ -24,10 +24,10 @@
     <a class="home" href="index.html" aria-label="RWS, home" data-fr-aria="RWS, accueil"><img class="logo-light" src="img/logo.png" width="396" height="132" alt="RWS ReservoirWellSurface"><img class="logo-dark" src="img/logo_dark.png" width="396" height="132" alt="RWS ReservoirWellSurface"></a>
     <nav aria-label="Pages">
       <a href="index.html" data-fr="Intro">Intro</a>
-      <a href="what.html" aria-current="page" data-fr="Quoi">What</a>
-      <a href="why.html" data-fr="Pourquoi">Why</a>
-      <a href="how.html" data-fr="Comment">How</a>
-      <a href="who.html" data-fr="Qui">Who</a>
+      <div class="mi"><a href="what.html" aria-current="page" data-fr="Quoi">What</a><div class="sub"><a href="#what" data-fr="Le produit">The product</a><a href="#levels" data-fr="Quatre niveaux">Four levels</a><a href="#decide" data-fr="Une décision chiffrée">A worked decision</a><a href="#sheet" data-fr="Fiche technique">Technical sheet</a></div></div>
+      <div class="mi"><a href="why.html" data-fr="Pourquoi">Why</a><div class="sub"><a href="why.html#why" data-fr="Positionnement">Positioning</a><a href="why.html#six" data-fr="Six choix">Six choices</a><a href="why.html#proof" data-fr="Les preuves">Proof</a></div></div>
+      <div class="mi"><a href="how.html" data-fr="Comment">How</a><div class="sub"><a href="how.html#films" data-fr="Films">Films</a><a href="how.html#key" data-fr="Comment l'obtenir">How to get it</a><a href="how.html#activate" data-fr="Activation">Activation</a><a href="how.html#institutes" data-fr="Pour les instituts">For institutes</a><a href="how.html#semester" data-fr="Un semestre">A semester</a><a href="how.html#pilot" data-fr="Pilote">Pilot</a></div></div>
+      <div class="mi"><a href="who.html" data-fr="Qui">Who</a><div class="sub"><a href="who.html#who" data-fr="Vision et mission">Vision and mission</a><a href="who.html#values" data-fr="Valeurs">Values</a><a href="who.html#team" data-fr="Équipe">Team</a><a href="who.html#partner" data-fr="Associé">Partner</a></div></div>
     </nav>
     <a class="btn fill keybtn" href="how.html#key" data-fr="Obtenir une clé">Get a key</a>
     <details class="lang">
@@ -42,6 +42,8 @@
 </header>
 
 <main class="log">
+
+  <nav class="subnav" aria-label="On this page" data-fr-aria="Sur cette page"><a href="#what" data-fr="Le produit">The product</a><a href="#levels" data-fr="Quatre niveaux">Four levels</a><a href="#decide" data-fr="Une décision chiffrée">A worked decision</a><a href="#sheet" data-fr="Fiche technique">Technical sheet</a></nav>
 
   <section class="interval" id="what">
     <div class="depth"><b data-fr="QUOI">WHAT</b></div>
@@ -183,38 +185,6 @@
     </div>
   </section>
 
-  <section class="interval" id="films">
-    <div class="depth"><b data-fr="FILMS">FILMS</b></div>
-    <div class="body">
-      <h2 data-fr="RWS en films">RWS in films</h2>
-      <p class="lede" data-fr="Trois courts films, commentés en anglais. Certains ont été réalisés avec des versions antérieures du programme : quelques écrans ont changé depuis.">Three short films, narrated in English. Some were made with earlier versions of the program, so a few screens have changed since.</p>
-      <article class="film">
-        <video controls preload="none" playsinline poster="img/poster_norne.jpg" width="1920" height="1080" aria-label="Automatic history matching on Norne" data-fr-aria="Calage automatique de l'historique sur Norne"><source src="video/norne-history-match.mp4" type="video/mp4"></video>
-        <div>
-          <p class="eyebrow" data-fr="3 min 58 s">3 min 58 s</p>
-          <h3 data-fr="Calage automatique de l'historique sur Norne">Automatic history matching on Norne</h3>
-          <p data-fr="Neuf ans de production réelle sur un vrai champ. Un seul bouton cale le modèle sur l'historique ; le film montre ce qui a changé en profondeur, la sensibilité du calage et ses limites.">Nine years of recorded production on a real field. One button matches the model to the record; the film shows what changed underground, the sensitivity of the match, and its limits.</p>
-        </div>
-      </article>
-      <article class="film">
-        <video controls preload="none" playsinline poster="img/poster_presentation.jpg" width="1920" height="1080" aria-label="Simple, light, and made to teach" data-fr-aria="Simple, léger, fait pour enseigner"><source src="video/rws-presentation.mp4" type="video/mp4"></video>
-        <div>
-          <p class="eyebrow" data-fr="2 min 29 s">2 min 29 s</p>
-          <h3 data-fr="Simple, léger, fait pour enseigner">Simple, light, and made to teach</h3>
-          <p data-fr="À qui s'adresse RWS, apprendre en faisant, construire un gisement à partir de ses données, et comment obtenir une licence.">Who RWS is for, learning by doing, building a reservoir from your data, and how to get a licence.</p>
-        </div>
-      </article>
-      <article class="film">
-        <video controls preload="none" playsinline poster="img/poster_promo.jpg" width="1920" height="1080" aria-label="One model, from the reservoir to the surface" data-fr-aria="Un seul modèle, du gisement à la surface"><source src="video/rws-promo.mp4" type="video/mp4"></video>
-        <div>
-          <p class="eyebrow" data-fr="2 min 1 s">2 min 1 s</p>
-          <h3 data-fr="Un seul modèle, du gisement à la surface">One model, from the reservoir to the surface</h3>
-          <p data-fr="Le parcours dans le programme en cinq étapes : données, méthodes, calcul, résultats, optimisation.">The path through the program in five stages: inputs, methods, run, results, optimise.</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
   <section class="interval" id="sheet">
     <div class="depth"><b data-fr="FICHE">SHEET</b></div>
     <div class="body">
@@ -250,10 +220,10 @@
 </footer>
 
 <dialog class="lb" id="lb"><button type="button" data-fr="Fermer">Close</button><img alt=""><p></p></dialog>
-<script src="js/ar.js?v=23"></script>
+<script src="js/ar.js?v=24"></script>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
 <script src="js/vendor/SplitText.min.js"></script>
-<script src="js/site.js?v=23"></script>
+<script src="js/site.js?v=24"></script>
 </body>
 </html>

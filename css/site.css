@@ -645,3 +645,18 @@ body.intro .log { max-width: none; padding: 0; flex: 1; display: flex; }
   .bar .keybtn { margin-left: auto; }
   [dir="rtl"] .bar .keybtn { margin-left: 0; margin-right: auto; }
 }
+
+/* ---------- sub-sections: a list under each rubric, and the same list at the top of its page ---------- */
+.bar nav .mi { position: relative; display: inline-flex; }
+.bar nav .sub { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); min-width: 210px; padding: 6px; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 12px 30px rgba(0, 0, 0, .16); z-index: 20; }
+.bar nav .sub a { display: flex; min-height: 44px; padding: 0 14px; border-radius: 4px; box-shadow: none; font-size: 0.9375rem; white-space: nowrap; }
+.bar nav .sub a:hover { background: var(--panel); color: var(--green); box-shadow: none; }
+@media (hover: hover) and (pointer: fine) and (min-width: 1041px) {
+  .bar nav .mi:hover .sub, .bar nav .mi:focus-within .sub { display: block; animation: pop 160ms var(--ease-out); transform-origin: top center; }
+}
+.subnav { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 0; border-bottom: 1px solid var(--line); position: sticky; top: 69px; z-index: 4; background: var(--paper); }
+.subnav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid var(--line); border-radius: 22px; color: var(--ink); text-decoration: none; font-size: 0.9375rem; transition: background .2s ease, border-color .2s ease, color .2s ease; }
+.subnav a:hover, .subnav a.on { border-color: var(--green); color: var(--green); background: var(--panel); }
+.interval, .howto > li, h2[id] { scroll-margin-top: 150px; }
+@media (max-width: 1040px) { .subnav { position: static; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding: 12px 0; } .subnav::-webkit-scrollbar { display: none; } .subnav a { white-space: nowrap; flex: 0 0 auto; } }
+main [id] { scroll-margin-top: 150px; }
