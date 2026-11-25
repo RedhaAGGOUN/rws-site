@@ -106,7 +106,7 @@
      With GSAP (js/vendor): an opening sequence, sections that rise in as they are reached, numbers that count up,
      a picture that drifts with the scroll and a reading bar. Only for visitors who have not asked for reduced motion.
      Without GSAP the simpler version further down runs instead. */
-  var SEL = "h2, h1.page, .lede, .stand, .tabs, .cards > div, .stats > div, .price > div, .weeks li, .decisions li, .bars .row, .band, .pilot, .check, .section-fig, .film, ol.steps li, .why-list li, .names-row, .marq";
+  var SEL = "h2, h1.page, .lede, .stand, .tabs, .cards > div, .stats > div, .price > div, .weeks li, .decisions li, .bars .row, .band, .pilot, .check, .section-fig, .film, ol.steps li, .why-list li, .names-row, .marq, .values li";
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
     if (window.SplitText) gsap.registerPlugin(SplitText);
@@ -202,6 +202,15 @@
         });
       }
       why(true);
+      /* the large statements (vision, mission) rise line by line when they are reached */
+      gsap.utils.toArray(".say").forEach(function (el) {
+        if (window.SplitText && root.lang !== "ar") {
+          var sp = SplitText.create(el, { type: "lines", mask: "lines" });
+          gsap.from(sp.lines, { yPercent: 110, duration: 1, ease: OUT, stagger: 0.12, scrollTrigger: { trigger: el, start: "top 85%", once: true }, onComplete: function () { sp.revert(); } });
+        } else {
+          gsap.from(el, { autoAlpha: 0, y: 30, duration: 0.9, ease: OUT, scrollTrigger: { trigger: el, start: "top 85%", once: true } });
+        }
+      });
       /* reading bar under the header */
       var head = document.querySelector(".bar"), bar = document.createElement("div");
       bar.className = "progress"; bar.setAttribute("aria-hidden", "true"); head.appendChild(bar);
