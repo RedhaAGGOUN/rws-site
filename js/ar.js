@@ -378,5 +378,15 @@ window.RWS_AR = {
 "Windows may warn that the publisher is unknown, because the installer is not yet signed: choose \"More info\", then \"Run anyway\".": "قد يحذّر ويندوز من ناشر غير معروف لأن برنامج التثبيت غير موقَّع بعد: اختر «مزيد من المعلومات» ثم «تشغيل على أي حال».",
 "Download": "تحميل",
 "DOWNLOAD": "تحميل",
-"Windows may warn that the publisher is unknown, because the installer is not yet signed: choose &quot;More info&quot;, then &quot;Run anyway&quot;.": "قد يحذّر ويندوز من ناشر غير معروف لأن برنامج التثبيت غير موقَّع بعد: اختر «مزيد من المعلومات» ثم «تشغيل على أي حال»."
+"Windows may warn that the publisher is unknown, because the installer is not yet signed: choose &quot;More info&quot;, then &quot;Run anyway&quot;.": "قد يحذّر ويندوز من ناشر غير معروف لأن برنامج التثبيت غير موقَّع بعد: اختر «مزيد من المعلومات» ثم «تشغيل على أي حال».",
+"Download and install": "التحميل والتثبيت",
+"RWS is free to download. Install it on Windows 10 or 11.": "تحميل RWS مجاني. ثبّته على ويندوز 10 أو 11.",
+"Ask for your first key": "اطلب مفتاحك الأول",
+"Activate": "التفعيل",
+"Start RWS and type your key. The program shows your key and the machine code of your computer.": "شغّل RWS وأدخل مفتاحك. يعرض البرنامج مفتاحك ورمز جهاز حاسوبك.",
+"Send both, with your name, to the producer.": "أرسل الاثنين، مع اسمك، إلى المنتج.",
+"Paste the activation code you receive. It is made from your key and your machine code, so it works on that computer only. Done, without the internet.": "ألصق رمز التفعيل الذي تتلقاه. يُحسب من مفتاحك ورمز جهازك، فلا يعمل إلا على ذلك الحاسوب. انتهى، دون إنترنت.",
+"Send my key and machine code": "أرسل مفتاحي ورمز جهازي",
+"Version 4.27.0 · 295 MB · Windows 10 or 11, 64 bit. Free to download; a key is needed to use it.": "الإصدار 4.27.0 · 295 ميغابايت · ويندوز 10 أو 11، 64 بت. التحميل مجاني؛ ويلزم مفتاح لاستعماله.",
+"Five steps, from the download to your first decision.": "خمس خطوات، من التحميل إلى قرارك الأول."
 };
