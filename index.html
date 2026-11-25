@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,600;1,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=19">
+<link rel="stylesheet" href="css/site.css?v=20">
 </head>
 <body>
 
@@ -51,7 +51,14 @@
   <section class="interval" id="top">
     <div class="depth"><b>R · W · S</b></div>
     <div class="body">
-      <div class="hero">
+      <div class="intro-film">
+        <figure class="journey-fig">
+          <video class="loop" autoplay muted loop playsinline preload="auto" poster="img/poster_loop.jpg" width="1280" height="720" aria-label="Animation: the drop of the RWS logo becomes a drop of oil in the reservoir, flows to the well, rises to the surface, becomes money, and returns to the logo." data-fr-aria="Animation : la goutte du logo RWS devient une goutte d'huile dans le gisement, s'écoule vers le puits, monte à la surface, devient de l'argent, puis revient au logo."><source src="video/pore-to-profit.mp4" type="video/mp4"></video>
+          <button type="button" class="snd" aria-pressed="false"><span class="on" data-fr="Activer le son">Sound on</span><span class="off" data-fr="Couper le son">Sound off</span></button>
+          <figcaption data-fr="Du pore au profit : le trajet d'une goutte.">From the pore to the profit: the path of one drop.</figcaption>
+        </figure>
+      </div>
+      <div class="hero solo">
         <div>
           <p class="eyebrow" data-fr="Simulateur de production pétrole et gaz">Oil and gas production simulator</p>
           <h1 data-fr-html="Comprendre un champ. <em>Puis décider.</em>">Understand a field. <em>Then decide.</em></h1>
@@ -67,11 +74,6 @@
             <li><b>3</b><span data-fr="langues">languages</span></li>
           </ul>
         </div>
-        <figure class="journey-fig">
-          <video class="loop" autoplay muted loop playsinline preload="auto" poster="img/poster_loop.jpg" width="1280" height="720" aria-label="Animation: the drop of the RWS logo becomes a drop of oil in the reservoir, flows to the well, rises to the surface, becomes money, and returns to the logo." data-fr-aria="Animation : la goutte du logo RWS devient une goutte d'huile dans le gisement, s'écoule vers le puits, monte à la surface, devient de l'argent, puis revient au logo."><source src="video/pore-to-profit.mp4" type="video/mp4"></video>
-          <button type="button" class="snd" aria-pressed="false"><span class="on" data-fr="Activer le son">Sound on</span><span class="off" data-fr="Couper le son">Sound off</span></button>
-          <figcaption data-fr="Du pore au profit : le trajet d'une goutte.">From the pore to the profit: the path of one drop.</figcaption>
-        </figure>
       </div>
 
       <figure class="section-fig">
@@ -217,10 +219,10 @@
 </footer>
 
 <dialog class="lb" id="lb"><button type="button" data-fr="Fermer">Close</button><img alt=""><p></p></dialog>
-<script src="js/ar.js?v=19"></script>
+<script src="js/ar.js?v=20"></script>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
 <script src="js/vendor/SplitText.min.js"></script>
-<script src="js/site.js?v=19"></script>
+<script src="js/site.js?v=20"></script>
 </body>
 </html>

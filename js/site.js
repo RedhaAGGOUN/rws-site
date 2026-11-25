@@ -162,7 +162,8 @@
             .add(function () { facts.forEach(function (li) { countUp(li.querySelector("b")); }); }, "<");
         }
         /* the picture is uncovered from the top, like a log being unrolled */
-        tl.fromTo(hero.querySelector("figure"), { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: openClip, duration: 1.1, ease: INOUT, clearProps: "clipPath" }, 0.15);
+        var hf = hero.querySelector("figure");
+        if (hf) tl.fromTo(hf, { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: openClip, duration: 1.1, ease: INOUT, clearProps: "clipPath" }, 0.15);
         var pics = hero.querySelectorAll("figure .pan img");
         if (pics.length) {
           gsap.fromTo(pics, { scale: 1.04, yPercent: 0 }, { scale: 1.14, yPercent: -5, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 1 } });

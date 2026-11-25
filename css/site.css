@@ -585,3 +585,12 @@ html:not(.gsap) .why-list .n { display: block; }
 .snd { position: absolute; top: 12px; inset-inline-end: 12px; min-height: 44px; padding: 8px 14px; border: 1px solid rgba(255, 255, 255, .6); border-radius: 22px; background: rgba(16, 22, 18, .72); color: #fff; font: 500 0.8125rem var(--mono); cursor: pointer; transition: transform 160ms var(--ease-out), background .2s ease; }
 .snd:hover { background: #0b6b3a; } .snd:active { transform: scale(.97); }
 .snd .off, .snd[aria-pressed="true"] .on { display: none; } .snd[aria-pressed="true"] .off { display: inline; }
+
+/* ---------- the film opens the site: it fills the first screen, the headline follows ---------- */
+#top .body { padding-top: 18px; }
+.intro-film .journey-fig { border: 1px solid var(--line); }
+.intro-film video.loop { width: 100%; max-height: calc(100vh - 110px); object-fit: contain; background: #fff; }
+.hero.solo { grid-template-columns: minmax(0, 1fr); margin-top: 30px; }
+.hero.solo h1 { max-width: 16ch; }
+.hero.solo .lede { max-width: 62ch; }
+@media (max-width: 860px) { #top .body { padding-top: 12px; } .hero.solo { margin-top: 20px; } .intro-film video.loop { max-height: none; } }
