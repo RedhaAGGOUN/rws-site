@@ -672,3 +672,8 @@ main [id] { scroll-margin-top: 150px; }
 /* download is red, the key is green */
 .btn.red, .btn.fill.red { background: var(--red); border-color: var(--red); color: var(--paper); }
 .dl { border-color: var(--red); }
+
+/* films in two groups */
+.film-group { margin: 2.4rem 0 0; padding-bottom: .6rem; font-size: 1.75rem; color: var(--green); }
+.film-group:first-of-type { margin-top: 1.4rem; }
+.film-group + .film { border-top: 2px solid var(--green); }

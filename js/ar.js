@@ -401,5 +401,15 @@ window.RWS_AR = {
 "Four short films. The first is narrated in French, the others in English. Some were made with earlier versions of the program, so a few screens have changed since.": "أربعة أفلام قصيرة. الأول بتعليق فرنسي، والبقية بالإنجليزية. بعضها أُنجز بإصدارات سابقة من البرنامج، لذلك تغيّرت بعض الشاشات منذ ذلك الحين.",
 "2 min 12 s · in French": "2 د 12 ث · بالفرنسية",
 "RWS explained: the product, its place, and how to try it": "شرح RWS: المنتج، موقعه، وكيف تجرّبه",
-"What RWS computes, its four levels, a worked decision on Norne, its place before and after the giants' software, and the five steps to download and activate it.": "ما يحسبه RWS، مستوياته الأربعة، مثال بالأرقام على نورن، موقعه قبل برامج الشركات الكبرى وبعدها، والخطوات الخمس لتحميله وتفعيله."
+"What RWS computes, its four levels, a worked decision on Norne, its place before and after the giants' software, and the five steps to download and activate it.": "ما يحسبه RWS، مستوياته الأربعة، مثال بالأرقام على نورن، موقعه قبل برامج الشركات الكبرى وبعدها، والخطوات الخمس لتحميله وتفعيله.",
+"Five short films. The first is narrated in French, the second in Arabic, the others in English. Some were made with earlier versions of the program, so a few screens have changed since.": "خمسة أفلام قصيرة. الأول بتعليق فرنسي، والثاني بالعربية، والبقية بالإنجليزية. بعضها أُنجز بإصدارات سابقة من البرنامج، لذلك تغيّرت بعض الشاشات منذ ذلك الحين.",
+"2 min 46 s · in Arabic": "2 د 46 ث · بالعربية",
+"An unconventional case: a fault, irregular cells, and an investment decision": "حالة غير تقليدية: صدع، خلايا غير منتظمة، وقرار استثماري",
+"A sealed fault cuts a dome of irregular cells and production falls tenfold. RWS simulates two wells that could answer it and prices each one, at today's oil price and with Algerian tax terms.": "صدع مانع يقطع قبّة من خلايا غير منتظمة فينزل الإنتاج عشر مرات. يحاكي RWS بئرين ممكنتين للحل، ويحسب اقتصاد كل منهما بسعر النفط اليوم وبالنظام الجبائي الجزائري.",
+"Five short films in two groups: first to discover RWS, then worked cases. Each film says its language. Some were made with earlier versions of the program, so a few screens have changed since.": "خمسة أفلام قصيرة في مجموعتين: أولاً لاكتشاف RWS، ثم حالات مدروسة. كل فيلم يذكر لغته. بعضها أُنجز بإصدارات سابقة من البرنامج، لذلك تغيّرت بعض الشاشات منذ ذلك الحين.",
+"Discover RWS": "اكتشف RWS",
+"Worked cases": "حالات مدروسة",
+"2 min 1 s · in English": "2 د 1 ث · بالإنجليزية",
+"2 min 29 s · in English": "2 د 29 ث · بالإنجليزية",
+"3 min 58 s · in English": "3 د 58 ث · بالإنجليزية"
 };
