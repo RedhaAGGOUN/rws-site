@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,600;1,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=29">
+<link rel="stylesheet" href="css/site.css?v=30">
 </head>
 <body>
 
@@ -57,7 +57,15 @@
     <div class="depth"><b data-fr="FILMS">FILMS</b></div>
     <div class="body">
       <h2 data-fr="RWS en films">RWS in films</h2>
-      <p class="lede" data-fr="Trois courts films, commentés en anglais. Certains ont été réalisés avec des versions antérieures du programme : quelques écrans ont changé depuis.">Three short films, narrated in English. Some were made with earlier versions of the program, so a few screens have changed since.</p>
+      <p class="lede" data-fr="Quatre courts films. Le premier est commenté en français, les autres en anglais. Certains ont été réalisés avec des versions antérieures du programme : quelques écrans ont changé depuis.">Four short films. The first is narrated in French, the others in English. Some were made with earlier versions of the program, so a few screens have changed since.</p>
+      <article class="film">
+        <video controls preload="none" playsinline poster="img/poster_explication.jpg" width="1920" height="1080" aria-label="RWS explained: the product, its place, and how to try it" data-fr-aria="RWS expliqué : le produit, sa place, et comment l'essayer"><source src="video/rws-explication-fr.mp4" type="video/mp4"></video>
+        <div>
+          <p class="eyebrow" data-fr="2 min 12 s · en français">2 min 12 s · in French</p>
+          <h3 data-fr="RWS expliqué : le produit, sa place, et comment l'essayer">RWS explained: the product, its place, and how to try it</h3>
+          <p data-fr="Ce que RWS calcule, ses quatre niveaux, un exemple chiffré sur Norne, sa place avant et après les logiciels des géants, et les cinq étapes pour le télécharger et l'activer.">What RWS computes, its four levels, a worked decision on Norne, its place before and after the giants' software, and the five steps to download and activate it.</p>
+        </div>
+      </article>
       <article class="film">
         <video controls preload="none" playsinline poster="img/poster_norne.jpg" width="1920" height="1080" aria-label="Automatic history matching on Norne" data-fr-aria="Calage automatique de l'historique sur Norne"><source src="video/norne-history-match.mp4" type="video/mp4"></video>
         <div>
@@ -283,10 +291,10 @@
 </footer>
 
 <dialog class="lb" id="lb"><button type="button" data-fr="Fermer">Close</button><img alt=""><p></p></dialog>
-<script src="js/ar.js?v=29"></script>
+<script src="js/ar.js?v=30"></script>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
 <script src="js/vendor/SplitText.min.js"></script>
-<script src="js/site.js?v=29"></script>
+<script src="js/site.js?v=30"></script>
 </body>
 </html>

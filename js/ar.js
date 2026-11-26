@@ -397,5 +397,9 @@ window.RWS_AR = {
 "Send your name, your key and your machine reference to aggoun.r.c@gmail.com.": "أرسل اسمك ومفتاحك ومرجع جهازك إلى aggoun.r.c@gmail.com.",
 "Send my details": "أرسل بياناتي",
 "Activate and enjoy": "فعّل واستمتع",
-"You receive an activation code. Paste it into RWS: it works on that computer, without the internet. Then start with level 1, Learn.": "تتلقى رمز تفعيل. ألصقه في RWS: يعمل على ذلك الحاسوب، دون إنترنت. ثم ابدأ بالمستوى 1، تعلَّم."
+"You receive an activation code. Paste it into RWS: it works on that computer, without the internet. Then start with level 1, Learn.": "تتلقى رمز تفعيل. ألصقه في RWS: يعمل على ذلك الحاسوب، دون إنترنت. ثم ابدأ بالمستوى 1، تعلَّم.",
+"Four short films. The first is narrated in French, the others in English. Some were made with earlier versions of the program, so a few screens have changed since.": "أربعة أفلام قصيرة. الأول بتعليق فرنسي، والبقية بالإنجليزية. بعضها أُنجز بإصدارات سابقة من البرنامج، لذلك تغيّرت بعض الشاشات منذ ذلك الحين.",
+"2 min 12 s · in French": "2 د 12 ث · بالفرنسية",
+"RWS explained: the product, its place, and how to try it": "شرح RWS: المنتج، موقعه، وكيف تجرّبه",
+"What RWS computes, its four levels, a worked decision on Norne, its place before and after the giants' software, and the five steps to download and activate it.": "ما يحسبه RWS، مستوياته الأربعة، مثال بالأرقام على نورن، موقعه قبل برامج الشركات الكبرى وبعدها، والخطوات الخمس لتحميله وتفعيله."
 };
